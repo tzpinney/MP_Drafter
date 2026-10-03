@@ -1,0 +1,45 @@
+name: Update MP data
+
+# Rebuilds data/mps.json from the official Parliament of Australia sources and opens a
+# pull request if anything changed (by-elections, resignations, new ministry, etc.).
+# Runs on the 1st of each month and on demand. Uses only free GitHub Actions minutes.
+
+on:
+  schedule:
+    - cron: "0 15 1 * *"   # 01:00 AEST on the 1st (15:00 UTC prior day)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install pdftotext (poppler-utils)
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+
+      - name: Rebuild data/mps.json
+        run: node scripts/build-mps.mjs
+
+      - name: Open a PR if the data changed
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "data: refresh mps.json from aph.gov.au"
+          title: "Update MP data from aph.gov.au"
+          body: |
+            Automated refresh of `data/mps.json` from the official Parliament of Australia
+            Members CSV and List of Members PDF.
+
+            Please eyeball the diff before merging — a changed email or electorate means a
+            by-election, resignation or ministry change.
+          branch: auto/update-mps
+          delete-branch: true
+          add-paths: data/mps.json
