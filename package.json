@@ -1,0 +1,16 @@
+{
+  "name": "proof-enough",
+  "private": true,
+  "type": "module",
+  "description": "Build scripts for the Proof Enough site data. Not used at runtime.",
+  "scripts": {
+    "build:mps": "node scripts/build-mps.mjs",
+    "build:localities": "node scripts/build-localities.mjs"
+  },
+  "devDependencies": {
+    "@turf/bbox": "^7.1.0",
+    "@turf/boolean-point-in-polygon": "^7.1.0",
+    "shapefile": "^0.6.6",
+    "which-polygon": "^2.2.1"
+  }
+}

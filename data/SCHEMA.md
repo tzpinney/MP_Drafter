@@ -5,8 +5,9 @@ site works with no runtime API calls. **Hand-editing is discouraged** — rerun 
 builder instead. In particular, MP emails must come from the official source and must
 never be constructed from a name pattern.
 
-> **Status:** `mps.json` is the full build — all 150 House members. `localities.json` is
-> still a *seed* (McEwen only) so the site runs end-to-end, pending the ABS × AEC build.
+> **Status:** both files are full national builds — `mps.json` has all 150 House members,
+> and `localities.json` covers every Australian postcode and suburb, reaching all 150
+> electorates.
 
 ## `mps.json`
 
