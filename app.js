@@ -123,18 +123,8 @@ const CONCERNS = [
     ask: "Require independent, published evidence that age verification actually reduces harm to children before it is expanded any further." }
 ];
 
-const OPEN = {
-  firm: [
-    "I am writing as a constituent of {electorate} to object to mandatory online age verification, including the social media minimum age rules and the Age-Restricted Material Codes now applying to app stores, search engines and other online services. Protecting children from genuinely harmful content is a goal I support, but my objection is above all to how badly this has been implemented — the social media minimum age rules in particular have been inept. These measures also amount to government overreach that restricts the online freedom of law-abiding adults without proper justification.",
-    "As a voter in {electorate}, I want to register my strong opposition to the way online age verification is being rolled out in Australia. Keeping children safe online is a worthy aim, but my main concern is that these rules have been rushed and badly implemented — the social media minimum age rules worst of all — while loading real costs onto law-abiding adults, and the case for them has not been made.",
-    "I am writing to you as my local member to oppose the age verification requirements now being rolled out across social media, app stores, search engines and other online services. I share the goal of protecting children, but these measures have been implemented ineptly, the social media minimum age rules especially, and in the process they overreach into the online lives of law-abiding adults."
-  ],
-  polite: [
-    "I am writing as a constituent of {electorate} to share my concerns about mandatory online age verification, including the social media minimum age rules and the Age-Restricted Material Codes now applying to app stores, search engines and other online services. I recognise these rules are meant to protect children — a goal I support — but my primary concern is how poorly they have been implemented, the social media minimum age rules in particular, which I also believe reach too far into the online lives of adults.",
-    "As a voter in {electorate}, I would like to raise some concerns about how online age verification is being introduced in Australia, and ask for your help. Protecting children online matters to me too, which is why I am troubled first and foremost by how poorly these measures have been implemented — the social media minimum age rules especially — rather than made proportionate and effective.",
-    "I am writing to you as my local member about the online age verification rules now being rolled out. I understand they are meant to keep children safe, and I share that goal — but they have been implemented poorly, the social media minimum age rules most of all, and they place an unfair burden on adults like me."
-  ]
-};
+const INTRO = "I am writing as a constituent of {electorate} about mandatory online age verification, including the social media minimum age rules and the Age-Restricted Material Codes now applying to app stores, search engines and other online services. I support protecting children from genuinely harmful content online. My objection is to how the Government has gone about it. The methods chosen are poorly designed and badly implemented, and the rollout of the social media minimum age rules in particular has been inept. In pursuit of a reasonable goal, these measures overreach, placing unjustified burdens on law-abiding adults and restricting their online freedom.";
+const OPEN = { firm: [INTRO], polite: [INTRO] };
 const ASK_INTRO = { firm: ["I ask that you:", "I am asking you to:"], polite: ["I would be grateful if you would:", "I respectfully ask that you:"] };
 const CLOSE = {
   firm: ["I would appreciate a written response setting out your position on this issue.", "Please reply in writing with your position and what you intend to do."],
