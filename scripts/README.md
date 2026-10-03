@@ -30,5 +30,4 @@ reruns this monthly and opens a PR when the data changes.
 ## `build-localities.*` — builds `data/localities.json`
 
 **Not yet written.** Will intersect ABS "Suburbs and Localities" boundaries with the
-current AEC federal electoral boundaries to map suburb + postcode to electorate(s). See
-`HANDOFF.md`.
+current AEC federal electoral boundaries to map suburb + postcode to electorate(s).

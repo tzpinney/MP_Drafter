@@ -23,6 +23,10 @@ scripts/tmp/
 .env
 .env.*
 
+# Local-only working files (kept on disk, not published)
+HANDOFF.md
+dev.bat
+
 # OS / editor cruft
 .DS_Store
 Thumbs.db

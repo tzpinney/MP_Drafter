@@ -5,9 +5,8 @@ site works with no runtime API calls. **Hand-editing is discouraged** — rerun 
 builder instead. In particular, MP emails must come from the official source and must
 never be constructed from a name pattern.
 
-> **Status:** these are *seed* files containing one verified electorate (McEwen) so the
-> site runs end-to-end. The full 150-MP and national-locality builds replace them — see
-> the tasks in `HANDOFF.md`.
+> **Status:** `mps.json` is the full build — all 150 House members. `localities.json` is
+> still a *seed* (McEwen only) so the site runs end-to-end, pending the ABS × AEC build.
 
 ## `mps.json`
 

@@ -2,7 +2,7 @@
 
 A free website where Australian voters write to their federal MP objecting to mandatory online age verification. The voter picks their concerns, adds a few words of their own, gets a varied draft letter, and sends it **from their own email account**.
 
-A working front-end prototype lives in [`proof-enough.html`](proof-enough.html). The full build brief is in [`HANDOFF.md`](HANDOFF.md).
+The site is [`index.html`](index.html) — a single self-contained page that loads the data in [`/data`](data). [`proof-enough.html`](proof-enough.html) is the original standalone prototype it grew from.
 
 ## Core principles
 
@@ -32,7 +32,7 @@ A working front-end prototype lives in [`proof-enough.html`](proof-enough.html).
 
 ## Status
 
-Front-end prototype complete. Data build, Pages Function, and deployment are the remaining work — see [`HANDOFF.md`](HANDOFF.md) for the full specification and pre-launch checklist.
+Front-end complete and wired to live data. `data/mps.json` holds all 150 House members (built automatically from official Parliament of Australia sources — see [`scripts`](scripts)). Remaining work: the suburb→electorate map (`data/localities.json`), the AI draft Pages Function, Cloudflare deployment, and the pre-launch checks (AEC authorisation line, cc-address re-check, AEC/ABS data attributions).
 
 ## Licence / attribution
 
