@@ -35,6 +35,9 @@
   --warn: #e2b36a; --warn-soft: #3a2f1c; --focus: #8fdcb7; color-scheme: dark;
 }
 * { box-sizing: border-box; }
+/* The hidden attribute must win over component rules that set `display`
+   (.mp-card, .ai, .inline-field), otherwise toggling [hidden] has no effect. */
+[hidden] { display: none !important; }
 body { background: var(--bg); color: var(--fg); font: 15px/1.55 var(--font-ui); }
 .wrap { max-width: 1180px; margin: 0 auto; padding-inline: 20px; padding-block: 28px 48px; }
 header.top { display: grid; gap: 8px; max-width: 70ch; margin-bottom: 28px; }
