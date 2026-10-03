@@ -101,6 +101,13 @@ textarea { resize: vertical; min-height: 96px; line-height: 1.5; }
 .addr-row .k { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .06em; }
 .addr-row .v { font-family: ui-monospace, Menlo, monospace; word-break: break-all; user-select: all; }
 .toast { min-height: 18px; font-size: 13px; color: var(--accent); }
+.privacy-line { margin: 10px 0 0; font-size: 13.5px; background: var(--accent-soft); border: 1px solid var(--line); border-radius: var(--r); padding: 10px 12px; max-width: 62ch; }
+.privacy-line a { color: var(--accent); font-weight: 600; }
+section.privacy { margin-top: 40px; max-width: 72ch; display: grid; gap: 12px; scroll-margin-top: 16px; }
+section.privacy h2 { font-family: var(--font-display); font-size: 22px; margin: 0; letter-spacing: -.01em; }
+section.privacy p { margin: 0; line-height: 1.55; }
+section.privacy p.sub { color: var(--muted); }
+section.privacy .fine { color: var(--muted); font-size: 13px; }
 footer { margin-top: 36px; color: var(--muted); font-size: 12.5px; display: grid; gap: 6px; max-width: 75ch; }
 @media (prefers-reduced-motion: no-preference) { .concern, .btn { transition: border-color .15s, background-color .15s; } }
 </style>
@@ -110,6 +117,7 @@ footer { margin-top: 36px; color: var(--muted); font-size: 12.5px; display: grid
     <div class="eyebrow">Write to your federal MP</div>
     <h1>I've already proved I'm an adult.</h1>
     <p class="lede">Build a personal letter to your Member of Parliament objecting to mandatory online age verification. Pick the concerns that apply to you, add a few words of your own, then send it from your own email account.</p>
+    <p class="privacy-line">🔒 <strong>Private by design</strong> — nothing you type leaves your device unless you choose to send it. <a href="#privacy">How this works ↓</a></p>
   </header>
 
   <div class="grid">
@@ -217,10 +225,20 @@ footer { margin-top: 36px; color: var(--muted); font-size: 12.5px; display: grid
     </div>
   </div>
 
+  <section class="privacy" id="privacy" aria-labelledby="privacyH">
+    <h2 id="privacyH">Your privacy — exactly what happens to your details</h2>
+    <p class="sub">Everything you type is handled in your browser, on your device. Here is precisely what is sent, where, to whom, and when — and what is never sent.</p>
+    <p><strong>1. While you build your letter</strong> — nothing you type is sent anywhere. The page runs entirely on your device. There is no account and no database, and nothing you enter is saved: close the tab and it's gone.</p>
+    <p><strong>2. If you use the built-in "Write it for me" writer</strong> — your browser sends a request to this site's writing service, which runs on our host, Cloudflare, and uses Cloudflare's AI. That request contains <strong>only</strong>: the concerns you ticked, roughly how old your accounts are, the tone you chose, your electorate's name, and the paragraph you wrote in "your own words." It <strong>never</strong> contains your name, street address, email, suburb or postcode — those are not sent to this site, to Cloudflare, or to the AI. We don't store the request or log what you wrote. <em>(Because your paragraph is sent, it's best not to put your name or address in it.)</em></p>
+    <p><strong>3. If you use the "Draft with ChatGPT" or "Draft with Claude" buttons</strong> — these open ChatGPT (OpenAI) or Claude (Anthropic) in your browser, under your own account, carrying that same limited prompt (concerns, your paragraph, electorate, tone). Again, no name, address, email, suburb or postcode. From there the draft lives in your own AI account, under that company's terms.</p>
+    <p><strong>4. When you send the letter</strong> — you send it yourself, from your own email (Gmail, Outlook, or your mail app). We never see your email, your letter, or who you send it to. One honest note: the finished letter <strong>does</strong> include your name and address in the signature — because that's what you're choosing to send to your MP, and electorate offices use it to confirm you're a local constituent. That is the one place your details travel, and only when <em>you</em> press send.</p>
+    <p><strong>5. No cookies, no tracking, no profile of you.</strong> <span class="fine">(If simple page-view counting is ever switched on, it uses a cookie-free method that can't identify you.)</span></p>
+    <p class="fine">What this page connects to, for transparency: fonts from Google; our host Cloudflare (the page, and the optional writer); and — only if the built-in writer is enabled — a Cloudflare anti-spam check (Turnstile). None of these receive what you type.</p>
+  </section>
+
   <footer>
-    <span>Nothing you type here is sent anywhere until you choose to open your email or an AI assistant.</span>
+    <span>Private by design — <a href="#privacy">how your details are handled</a>.</span>
     <span>Electorate lookup uses federal electoral boundaries © Australian Electoral Commission and Suburbs/Localities and Postal Areas boundaries © Australian Bureau of Statistics, both used under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>. MP contact details are from the Parliament of Australia.</span>
-    <span>Authorised by [Name], [Town].</span>
   </footer>
 </div>
 
