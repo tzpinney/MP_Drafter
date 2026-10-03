@@ -124,7 +124,20 @@ const CONCERNS = [
 ];
 
 const INTRO = "I am writing as a constituent of {electorate} about mandatory online age verification, including the social media minimum age rules and the Age-Restricted Material Codes now applying to app stores, search engines and other online services. I support protecting children from genuinely harmful content online. My objection is to how the Government has gone about it. The methods chosen are poorly designed and badly implemented, and the rollout of the social media minimum age rules in particular has been inept. In pursuit of a reasonable goal, these measures overreach, placing unjustified burdens on law-abiding adults and restricting their online freedom.";
-const OPEN = { firm: [INTRO], polite: [INTRO] };
+// Every opening keeps the same order: acknowledge the goal, object to the METHODS and
+// implementation (not the goal), then the overreach onto law-abiding adults.
+const OPEN = {
+  firm: [
+    INTRO,
+    "As a constituent of {electorate}, I am writing about mandatory online age verification — the social media minimum age rules and the Age-Restricted Material Codes now applying to app stores, search engines and other online services. Protecting children from genuinely harmful content online is a goal I share. My objection is not to that goal but to the Government's execution of it: the methods are poorly designed and badly implemented, and the social media minimum age rules in particular have been rolled out ineptly. The result is overreach that loads unjustified burdens onto law-abiding adults and curtails their freedom online.",
+    "I am writing to you as a constituent of {electorate} about mandatory online age verification, including the social media minimum age rules and the Age-Restricted Material Codes now covering app stores, search engines and other online services. Keeping children away from genuinely harmful content is a worthy aim, and I support it. What I object to is how it has been pursued — through poorly designed, badly implemented measures, with the social media minimum age rules handled worst of all — in a way that overreaches and places unjustified burdens on law-abiding adults and their online freedom."
+  ],
+  polite: [
+    INTRO,
+    "As a constituent of {electorate}, I would like to share my concerns about mandatory online age verification — the social media minimum age rules and the Age-Restricted Material Codes now applying to app stores, search engines and other online services. I genuinely support protecting children from harmful content online. My concern is with how the Government has approached it: the methods are poorly designed and have been badly implemented, and the rollout of the social media minimum age rules in particular has been inept. However well intended, these measures overreach, placing unjustified burdens on law-abiding adults and limiting their freedom online.",
+    "I am writing to you as a constituent of {electorate} about the online age verification rules now being introduced, including the social media minimum age rules and the Age-Restricted Material Codes covering app stores, search engines and other services. Protecting children from genuinely harmful content matters to me too. My concern is not the goal but the execution — poorly designed and badly implemented measures, with the social media minimum age rules rolled out especially poorly — which in practice overreach and place unfair burdens on law-abiding adults and their freedom online."
+  ]
+};
 const ASK_INTRO = { firm: ["I ask that you:", "I am asking you to:"], polite: ["I would be grateful if you would:", "I respectfully ask that you:"] };
 const CLOSE = {
   firm: ["I would appreciate a written response setting out your position on this issue.", "Please reply in writing with your position and what you intend to do."],
