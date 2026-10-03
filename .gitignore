@@ -1,0 +1,31 @@
+# Node (data-build scripts, wrangler)
+node_modules/
+npm-debug.log*
+.npm/
+
+# Cloudflare / Wrangler local state
+.wrangler/
+.dev.vars
+.dev.vars.*
+dist/
+
+# Local data-build working files (large boundary downloads, intermediates)
+scripts/.cache/
+scripts/tmp/
+*.zip
+*.shp
+*.shx
+*.dbf
+*.prj
+*.gpkg
+
+# Environment / secrets
+.env
+.env.*
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
