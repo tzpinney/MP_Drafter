@@ -169,6 +169,13 @@ footer { margin-top: 36px; color: var(--muted); font-size: 12.5px; display: grid
           <button type="button" class="btn small" id="shuffle">New wording</button>
         </div>
 
+        <div class="ai" id="builtinAi" hidden>
+          <h3>Write it for me</h3>
+          <p class="hint">The built-in writer drafts a letter from your choices. Your name, address and email are never sent — only your selected concerns and your own words.</p>
+          <div id="turnstile"></div>
+          <div class="row"><button type="button" class="btn primary" id="useBuiltin">Write my letter</button></div>
+        </div>
+
         <div class="ai">
           <h3>Want it rewritten by an AI?</h3>
           <p class="hint">Opens ChatGPT or Claude with your concerns and your own words filled in, using your own account. Your name and address are left out. Copy the result and paste it below.</p>
@@ -218,6 +225,12 @@ footer { margin-top: 36px; color: var(--muted); font-size: 12.5px; display: grid
 </div>
 
 <script>
+// Set this to your Cloudflare Turnstile *site* key to turn on the built-in AI writer
+// (path 1). Left empty, the built-in writer stays hidden and the page works with just the
+// ChatGPT/Claude hand-off and the phrase-bank letter. The matching Turnstile *secret* and
+// the Workers AI binding live in the Cloudflare dashboard, never in this file.
+const TURNSTILE_SITE_KEY = "";
+
 // MP contact data and the suburb+postcode -> electorate map are loaded at runtime from
 // /data. If the fetch fails (e.g. the file is opened directly off disk), these small
 // fallbacks keep the page working and the acceptance example resolving.
@@ -547,6 +560,47 @@ document.querySelectorAll("[data-copy]").forEach(b => b.onclick = () => copy($(b
 // Clear a previous split-electorate choice when the address changes.
 ["suburb", "postcode"].forEach(id => $(id).addEventListener("input", () => { state.chosen = null; }));
 
+// --- Built-in AI writer (path 1) -------------------------------------------------------
+// Only the selected concerns, account-age, tone, electorate name and the voter's own
+// paragraph are sent. Name, address, suburb, postcode and email never leave the browser.
+function failSoftAi() {
+  state.source = "built"; state.dirty = false; $("dirtyNote").hidden = true; update();
+  toast("The built-in writer isn't available right now — here's a draft from your choices, or use your own AI below.");
+}
+async function useBuiltinAi() {
+  const token = window.turnstile ? window.turnstile.getResponse() : "";
+  if (!token) { toast("Please complete the quick check first."); return; }
+  const payload = {
+    concerns: [...state.selected],
+    years: years(),
+    tone: state.tone,
+    electorate: mp().electorate || "",
+    personal: $("personal").value.trim().slice(0, 1000),
+    turnstileToken: token,
+  };
+  toast("Writing your letter…");
+  try {
+    const r = await fetch("/api/draft", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(payload) });
+    const data = await r.json();
+    if (data && data.ok && data.body) {
+      state.aiBody = data.body; state.source = "ai"; state.dirty = false; $("dirtyNote").hidden = true; update();
+      toast("Drafted by the built-in writer. Read it over and edit as you like.");
+    } else { failSoftAi(); }
+  } catch (e) { failSoftAi(); }
+  if (window.turnstile) window.turnstile.reset();
+}
+function initBuiltinAi() {
+  if (!TURNSTILE_SITE_KEY) return;                 // feature off until a site key is set
+  $("builtinAi").hidden = false;
+  $("useBuiltin").onclick = useBuiltinAi;
+  const s = document.createElement("script");
+  s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+  s.async = true; s.defer = true;
+  s.onload = () => { try { window.turnstile.render("#turnstile", { sitekey: TURNSTILE_SITE_KEY }); } catch (e) {} };
+  document.head.appendChild(s);
+}
+
 renderConcerns(); update();          // paint immediately with the built-in fallback data
 loadData().then(update);             // then swap in the full data and re-render
+initBuiltinAi();                     // reveal the built-in AI writer if a site key is set
 </script>

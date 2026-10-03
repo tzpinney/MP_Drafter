@@ -30,9 +30,41 @@ The site is [`index.html`](index.html) — a single self-contained page that loa
 /scripts/                local / GitHub Actions data-build scripts
 ```
 
+## Built-in AI writer (optional, path 1)
+
+`functions/api/draft.js` is a Cloudflare Pages Function that writes the letter body with
+Workers AI. It is progressive enhancement over the phrase-bank letter and **fails soft**:
+on any problem (Turnstile failure, free allowance exhausted, timeout) it returns a status
+and the page shows the phrase-bank draft plus the ChatGPT/Claude hand-off. It never shows
+a raw error.
+
+Privacy: the browser sends only the selected concern IDs, the account-age number, the
+tone, the electorate name and the voter's own paragraph. Name, address, suburb, postcode
+and email never reach it. The prompt is built server-side from fixed concern text — the
+only free-form input accepted is the personal paragraph (capped at 1,000 characters). The
+function does not log request bodies.
+
+It stays **off until configured**, so the site runs on just the hand-off + phrase-bank
+until you deploy with keys:
+
+| Where | Name | Value |
+|-------|------|-------|
+| `index.html` | `TURNSTILE_SITE_KEY` | your Cloudflare Turnstile **site** key |
+| Cloudflare dashboard → Variables | `TURNSTILE_SECRET` | your Turnstile **secret** key |
+| Cloudflare dashboard → Bindings | `AI` | Workers AI binding |
+
+Model: `@cf/meta/llama-3.1-8b-instruct`. The Workers AI free allowance is 10,000 Neurons
+per day — record the Neurons per letter from the Cloudflare dashboard after the first real
+generations so we know the daily letter capacity (confirm at deploy).
+
 ## Status
 
-Front-end complete and wired to live data. `data/mps.json` holds all 150 House members (built automatically from official Parliament of Australia sources — see [`scripts`](scripts)). Remaining work: the suburb→electorate map (`data/localities.json`), the AI draft Pages Function, Cloudflare deployment, and the pre-launch checks (AEC authorisation line, cc-address re-check, AEC/ABS data attributions).
+Front-end complete and wired to live data; all 150 MPs and the full national
+suburb→electorate map are built from official sources (see [`scripts`](scripts)). The
+built-in AI function is written and unit-tested. Remaining work: **deployment** to
+Cloudflare Pages (connect the repo, add the Workers AI binding + Turnstile keys, confirm
+the Free plan), and the **pre-launch checks** — the AEC authorisation line, a cc-address
+re-check, and confirming the exact AEC/ABS attribution wording.
 
 ## Licence / attribution
 
