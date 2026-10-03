@@ -2,7 +2,7 @@
 // (path 1). Left empty, the built-in writer stays hidden and the page works with just the
 // ChatGPT/Claude hand-off and the phrase-bank letter. The matching Turnstile *secret* and
 // the Workers AI binding live in the Cloudflare dashboard, never in this file.
-const TURNSTILE_SITE_KEY = "";
+const TURNSTILE_SITE_KEY = "0x4AAAAAAFMkpa853T6HskCm";
 
 // MP contact data and the suburb+postcode -> electorate map are loaded at runtime from
 // /data. If the fetch fails (e.g. the file is opened directly off disk), these small
