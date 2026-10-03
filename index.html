@@ -439,7 +439,10 @@ function renderMp() {
   $("mpManual").hidden = r.mode !== "manual";
   if (r.mode === "found") {
     const m = MPS[r.electorate];
-    $("mpFound").innerHTML = "<span class=\"hint\">Member for " + r.electorate + "</span><strong>" + m.name + " MP</strong><span class=\"addr\">" + m.email + "</span>";
+    const contact = m.email
+      ? "<span class=\"addr\">" + m.email + "</span>"
+      : "<span class=\"notice\" style=\"margin-top:6px\">Parliament doesn't publish a direct email for this member. You can still build and copy your letter, or reach them via their page on <a href=\"https://www.aph.gov.au/Senators_and_Members/Members\" target=\"_blank\" rel=\"noopener\">aph.gov.au</a>.</span>";
+    $("mpFound").innerHTML = "<span class=\"hint\">Member for " + r.electorate + "</span><strong>" + m.name + " MP</strong>" + contact;
   } else if (r.mode === "choice") {
     $("mpChoiceNote").innerHTML = "Your suburb is split between more than one electorate. Pick yours — if you're not sure, check the <a href=\"https://electorate.aec.gov.au/\" target=\"_blank\" rel=\"noopener\">AEC electorate finder</a>.";
     const box = $("mpChoiceBtns"); box.innerHTML = "";

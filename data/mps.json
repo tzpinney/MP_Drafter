@@ -1,9 +1,1052 @@
 {
+  "Adelaide": {
+    "name": "Steve Georganas",
+    "salutation": "Mr Georganas",
+    "email": "steve.georganas.mp@aph.gov.au",
+    "state": "SA",
+    "party": "ALP"
+  },
+  "Aston": {
+    "name": "Mary Doyle",
+    "salutation": "Ms Doyle",
+    "email": "mary.doyle.mp@aph.gov.au",
+    "state": "VIC",
+    "party": "ALP"
+  },
+  "Ballarat": {
+    "name": "Catherine King",
+    "salutation": "Ms King",
+    "email": "catherine.king.mp@aph.gov.au",
+    "state": "VIC",
+    "party": "ALP"
+  },
+  "Banks": {
+    "name": "Zhi Soon",
+    "salutation": "Mr Soon",
+    "email": "zhi.soon.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "ALP"
+  },
+  "Barker": {
+    "name": "Tony Pasin",
+    "salutation": "Mr Pasin",
+    "email": "tony.pasin.mp@aph.gov.au",
+    "state": "SA",
+    "party": "LP"
+  },
+  "Barton": {
+    "name": "Ash Ambihaipahar",
+    "salutation": "Ms Ambihaipahar",
+    "email": "ash.ambihaipahar.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "ALP"
+  },
+  "Bass": {
+    "name": "Jess Teesdale",
+    "salutation": "Ms Teesdale",
+    "email": "jess.teesdale.mp@aph.gov.au",
+    "state": "TAS",
+    "party": "ALP"
+  },
+  "Bean": {
+    "name": "David Smith",
+    "salutation": "Mr Smith",
+    "email": "david.smith.mp@aph.gov.au",
+    "state": "ACT",
+    "party": "ALP"
+  },
+  "Bendigo": {
+    "name": "Lisa Chesters",
+    "salutation": "Ms Chesters",
+    "email": "lisa.chesters.mp@aph.gov.au",
+    "state": "VIC",
+    "party": "ALP"
+  },
+  "Bennelong": {
+    "name": "Jerome Laxale",
+    "salutation": "Mr Laxale",
+    "email": "jerome.laxale.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "ALP"
+  },
+  "Berowra": {
+    "name": "Julian Leeser",
+    "salutation": "Mr Leeser",
+    "email": "julian.leeser.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "LP"
+  },
+  "Blair": {
+    "name": "Shayne Neumann",
+    "salutation": "Mr Neumann",
+    "email": "shayne.neumann.mp@aph.gov.au",
+    "state": "QLD",
+    "party": "ALP"
+  },
+  "Blaxland": {
+    "name": "Jason Clare",
+    "salutation": "Mr Clare",
+    "email": "jason.clare.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "ALP"
+  },
+  "Bonner": {
+    "name": "Kara Cook",
+    "salutation": "Ms Cook",
+    "email": "kara.cook.mp@aph.gov.au",
+    "state": "QLD",
+    "party": "ALP"
+  },
+  "Boothby": {
+    "name": "Louise Miller-Frost",
+    "salutation": "Ms Miller-Frost",
+    "email": "louise.miller-frost.mp@aph.gov.au",
+    "state": "SA",
+    "party": "ALP"
+  },
+  "Bowman": {
+    "name": "Henry Pike",
+    "salutation": "Mr Pike",
+    "email": "henry.pike.mp@aph.gov.au",
+    "state": "QLD",
+    "party": "LNP"
+  },
+  "Braddon": {
+    "name": "Anne Urquhart",
+    "salutation": "Ms Urquhart",
+    "email": "anne.urquhart.mp@aph.gov.au",
+    "state": "TAS",
+    "party": "ALP"
+  },
+  "Bradfield": {
+    "name": "Nicolette Boele",
+    "salutation": "Ms Boele",
+    "email": "nicolette.boele.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "IND"
+  },
+  "Brand": {
+    "name": "Madeleine King",
+    "salutation": "Ms King",
+    "email": "madeleine.king.mp@aph.gov.au",
+    "state": "WA",
+    "party": "ALP"
+  },
+  "Brisbane": {
+    "name": "Madonna Jarrett",
+    "salutation": "Ms Jarrett",
+    "email": "madonna.jarrett.mp@aph.gov.au",
+    "state": "QLD",
+    "party": "ALP"
+  },
+  "Bruce": {
+    "name": "Julian Hill",
+    "salutation": "Mr Hill",
+    "email": "julian.hill.mp@aph.gov.au",
+    "state": "VIC",
+    "party": "ALP"
+  },
+  "Bullwinkel": {
+    "name": "Trish Cook",
+    "salutation": "Dr Cook",
+    "email": "trish.cook.mp@aph.gov.au",
+    "state": "WA",
+    "party": "ALP"
+  },
+  "Burt": {
+    "name": "Matt Keogh",
+    "salutation": "Mr Keogh",
+    "email": "matt.keogh.mp@aph.gov.au",
+    "state": "WA",
+    "party": "ALP"
+  },
+  "Calare": {
+    "name": "Andrew Gee",
+    "salutation": "Mr Gee",
+    "email": "andrew.gee.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "IND"
+  },
+  "Calwell": {
+    "name": "Basem Abdo",
+    "salutation": "Mr Abdo",
+    "email": "basem.abdo.mp@aph.gov.au",
+    "state": "VIC",
+    "party": "ALP"
+  },
+  "Canberra": {
+    "name": "Alicia Payne",
+    "salutation": "Ms Payne",
+    "email": "alicia.payne.mp@aph.gov.au",
+    "state": "ACT",
+    "party": "ALP"
+  },
+  "Canning": {
+    "name": "Andrew Hastie",
+    "salutation": "Mr Hastie",
+    "email": "andrew.hastie.mp@aph.gov.au",
+    "state": "WA",
+    "party": "LP"
+  },
+  "Capricornia": {
+    "name": "Michelle Landry",
+    "salutation": "Ms Landry",
+    "email": "michelle.landry.mp@aph.gov.au",
+    "state": "QLD",
+    "party": "LNP"
+  },
+  "Casey": {
+    "name": "Aaron Violi",
+    "salutation": "Mr Violi",
+    "email": "aaron.violi.mp@aph.gov.au",
+    "state": "VIC",
+    "party": "LP"
+  },
+  "Chifley": {
+    "name": "Ed Husic",
+    "salutation": "Mr Husic",
+    "email": "ed.husic.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "ALP"
+  },
+  "Chisholm": {
+    "name": "Carina Garland",
+    "salutation": "Dr Garland",
+    "email": "carina.garland.mp@aph.gov.au",
+    "state": "VIC",
+    "party": "ALP"
+  },
+  "Clark": {
+    "name": "Andrew Wilkie",
+    "salutation": "Mr Wilkie",
+    "email": "andrew.wilkie.mp@aph.gov.au",
+    "state": "TAS",
+    "party": "IND"
+  },
+  "Cook": {
+    "name": "Simon Kennedy",
+    "salutation": "Mr Kennedy",
+    "email": "simon.kennedy.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "LP"
+  },
+  "Cooper": {
+    "name": "Ged Kearney",
+    "salutation": "Ms Kearney",
+    "email": "ged.kearney.mp@aph.gov.au",
+    "state": "VIC",
+    "party": "ALP"
+  },
+  "Corangamite": {
+    "name": "Libby Coker",
+    "salutation": "Ms Coker",
+    "email": "libby.coker.mp@aph.gov.au",
+    "state": "VIC",
+    "party": "ALP"
+  },
+  "Corio": {
+    "name": "Richard Marles",
+    "salutation": "Mr Marles",
+    "email": "richard.marles.mp@aph.gov.au",
+    "state": "VIC",
+    "party": "ALP"
+  },
+  "Cowan": {
+    "name": "Anne Aly",
+    "salutation": "Dr Aly",
+    "email": "anne.aly.mp@aph.gov.au",
+    "state": "WA",
+    "party": "ALP"
+  },
+  "Cowper": {
+    "name": "Pat Conaghan",
+    "salutation": "Mr Conaghan",
+    "email": "pat.conaghan.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "NATS"
+  },
+  "Cunningham": {
+    "name": "Alison Byrnes",
+    "salutation": "Ms Byrnes",
+    "email": "alison.byrnes.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "ALP"
+  },
+  "Curtin": {
+    "name": "Kate Chaney",
+    "salutation": "Ms Chaney",
+    "email": "kate.chaney.mp@aph.gov.au",
+    "state": "WA",
+    "party": "IND"
+  },
+  "Dawson": {
+    "name": "Andrew Willcox",
+    "salutation": "Mr Willcox",
+    "email": "andrew.willcox.mp@aph.gov.au",
+    "state": "QLD",
+    "party": "LNP"
+  },
+  "Deakin": {
+    "name": "Matt Gregg",
+    "salutation": "Mr Gregg",
+    "email": "matthew.gregg.mp@aph.gov.au",
+    "state": "VIC",
+    "party": "ALP"
+  },
+  "Dickson": {
+    "name": "Ali France",
+    "salutation": "Ms France",
+    "email": "ali.france.mp@aph.gov.au",
+    "state": "QLD",
+    "party": "ALP"
+  },
+  "Dobell": {
+    "name": "Emma McBride",
+    "salutation": "Ms McBride",
+    "email": "emma.mcbride.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "ALP"
+  },
+  "Dunkley": {
+    "name": "Jodie Belyea",
+    "salutation": "Ms Belyea",
+    "email": "jodie.belyea.mp@aph.gov.au",
+    "state": "VIC",
+    "party": "ALP"
+  },
+  "Durack": {
+    "name": "Melissa Price",
+    "salutation": "Ms Price",
+    "email": "melissa.price.mp@aph.gov.au",
+    "state": "WA",
+    "party": "LP"
+  },
+  "Eden-Monaro": {
+    "name": "Kristy McBain",
+    "salutation": "Ms McBain",
+    "email": "kristy.mcbain.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "ALP"
+  },
+  "Fadden": {
+    "name": "Cameron Caldwell",
+    "salutation": "Mr Caldwell",
+    "email": "cameron.caldwell.mp@aph.gov.au",
+    "state": "QLD",
+    "party": "LNP"
+  },
+  "Fairfax": {
+    "name": "Ted O'Brien",
+    "salutation": "Mr O'Brien",
+    "email": "ted.obrien.mp@aph.gov.au",
+    "state": "QLD",
+    "party": "LNP"
+  },
+  "Farrer": {
+    "name": "David Farley",
+    "salutation": "Mr Farley",
+    "email": "david.farley.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "ON"
+  },
+  "Fenner": {
+    "name": "Andrew Leigh",
+    "salutation": "Dr Leigh",
+    "email": "andrew.leigh.mp@aph.gov.au",
+    "state": "ACT",
+    "party": "ALP"
+  },
+  "Fisher": {
+    "name": "Andrew Wallace",
+    "salutation": "Mr Wallace",
+    "email": "andrew.wallace.mp@aph.gov.au",
+    "state": "QLD",
+    "party": "LNP"
+  },
+  "Flinders": {
+    "name": "Zoe McKenzie",
+    "salutation": "Ms McKenzie",
+    "email": "zoe.mckenzie.mp@aph.gov.au",
+    "state": "VIC",
+    "party": "LP"
+  },
+  "Flynn": {
+    "name": "Colin Boyce",
+    "salutation": "Mr Boyce",
+    "email": "colin.boyce.mp@aph.gov.au",
+    "state": "QLD",
+    "party": "LNP"
+  },
+  "Forde": {
+    "name": "Rowan Holzberger",
+    "salutation": "Mr Holzberger",
+    "email": "rowan.holzberger.mp@aph.gov.au",
+    "state": "QLD",
+    "party": "ALP"
+  },
+  "Forrest": {
+    "name": "Ben Small",
+    "salutation": "Mr Small",
+    "email": "ben.small.mp@aph.gov.au",
+    "state": "WA",
+    "party": "LP"
+  },
+  "Fowler": {
+    "name": "Dai Le",
+    "salutation": "Ms Le",
+    "email": "dai.le.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "IND"
+  },
+  "Franklin": {
+    "name": "Julie Collins",
+    "salutation": "Ms Collins",
+    "email": "julie.collins.mp@aph.gov.au",
+    "state": "TAS",
+    "party": "ALP"
+  },
+  "Fraser": {
+    "name": "Daniel Mulino",
+    "salutation": "Dr Mulino",
+    "email": "daniel.mulino.mp@aph.gov.au",
+    "state": "VIC",
+    "party": "ALP"
+  },
+  "Fremantle": {
+    "name": "Josh Wilson",
+    "salutation": "Mr Wilson",
+    "email": "josh.wilson.mp@aph.gov.au",
+    "state": "WA",
+    "party": "ALP"
+  },
+  "Gellibrand": {
+    "name": "Tim Watts",
+    "salutation": "Mr Watts",
+    "email": "tim.watts.mp@aph.gov.au",
+    "state": "VIC",
+    "party": "ALP"
+  },
+  "Gilmore": {
+    "name": "Fiona Phillips",
+    "salutation": "Mrs Phillips",
+    "email": "fiona.phillips.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "ALP"
+  },
+  "Gippsland": {
+    "name": "Darren Chester",
+    "salutation": "Mr Chester",
+    "email": "darren.chester.mp@aph.gov.au",
+    "state": "VIC",
+    "party": "NATS"
+  },
+  "Goldstein": {
+    "name": "Tim Wilson",
+    "salutation": "Mr Wilson",
+    "email": "tim.wilson.mp@aph.gov.au",
+    "state": "VIC",
+    "party": "LP"
+  },
+  "Gorton": {
+    "name": "Alice Jordan-Baird",
+    "salutation": "Ms Jordan-Baird",
+    "email": "alice.jordan-baird.mp@aph.gov.au",
+    "state": "VIC",
+    "party": "ALP"
+  },
+  "Grayndler": {
+    "name": "Anthony Albanese",
+    "salutation": "Mr Albanese",
+    "email": null,
+    "state": "NSW",
+    "party": "ALP"
+  },
+  "Greenway": {
+    "name": "Michelle Rowland",
+    "salutation": "Ms Rowland",
+    "email": "michelle.rowland.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "ALP"
+  },
+  "Grey": {
+    "name": "Tom Venning",
+    "salutation": "Mr Venning",
+    "email": "tom.venning.mp@aph.gov.au",
+    "state": "SA",
+    "party": "LP"
+  },
+  "Griffith": {
+    "name": "Renee Coffey",
+    "salutation": "Ms Coffey",
+    "email": "renee.coffey.mp@aph.gov.au",
+    "state": "QLD",
+    "party": "ALP"
+  },
+  "Groom": {
+    "name": "Garth Hamilton",
+    "salutation": "Mr Hamilton",
+    "email": "garth.hamilton.mp@aph.gov.au",
+    "state": "QLD",
+    "party": "LNP"
+  },
+  "Hasluck": {
+    "name": "Tania Lawrence",
+    "salutation": "Ms Lawrence",
+    "email": "tania.lawrence.mp@aph.gov.au",
+    "state": "WA",
+    "party": "ALP"
+  },
+  "Hawke": {
+    "name": "Sam Rae",
+    "salutation": "Mr Rae",
+    "email": "sam.rae.mp@aph.gov.au",
+    "state": "VIC",
+    "party": "ALP"
+  },
+  "Herbert": {
+    "name": "Phillip Thompson",
+    "salutation": "Mr Thompson",
+    "email": "phillip.thompson.mp@aph.gov.au",
+    "state": "QLD",
+    "party": "LNP"
+  },
+  "Hindmarsh": {
+    "name": "Mark Butler",
+    "salutation": "Mr Butler",
+    "email": "mark.butler.mp@aph.gov.au",
+    "state": "SA",
+    "party": "ALP"
+  },
+  "Hinkler": {
+    "name": "David Batt",
+    "salutation": "Mr Batt",
+    "email": "david.batt.mp@aph.gov.au",
+    "state": "QLD",
+    "party": "LNP"
+  },
+  "Holt": {
+    "name": "Cassandra Fernando",
+    "salutation": "Ms Fernando",
+    "email": "cassandra.fernando.mp@aph.gov.au",
+    "state": "VIC",
+    "party": "ALP"
+  },
+  "Hotham": {
+    "name": "Clare O'Neil",
+    "salutation": "Ms O'Neil",
+    "email": "clare.oneil.mp@aph.gov.au",
+    "state": "VIC",
+    "party": "ALP"
+  },
+  "Hughes": {
+    "name": "David Moncrieff",
+    "salutation": "Mr Moncrieff",
+    "email": "david.moncrieff.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "ALP"
+  },
+  "Hume": {
+    "name": "Angus Taylor",
+    "salutation": "Mr Taylor",
+    "email": "angus.taylor.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "LP"
+  },
+  "Hunter": {
+    "name": "Dan Repacholi",
+    "salutation": "Mr Repacholi",
+    "email": "dan.repacholi.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "ALP"
+  },
+  "Indi": {
+    "name": "Helen Haines",
+    "salutation": "Dr Haines",
+    "email": "helen.haines.mp@aph.gov.au",
+    "state": "VIC",
+    "party": "IND"
+  },
+  "Isaacs": {
+    "name": "Mark Dreyfus",
+    "salutation": "Mr Dreyfus",
+    "email": "mark.dreyfus.mp@aph.gov.au",
+    "state": "VIC",
+    "party": "ALP"
+  },
+  "Jagajaga": {
+    "name": "Kate Thwaites",
+    "salutation": "Ms Thwaites",
+    "email": "kate.thwaites.mp@aph.gov.au",
+    "state": "VIC",
+    "party": "ALP"
+  },
+  "Kennedy": {
+    "name": "Bob Katter",
+    "salutation": "Mr Katter",
+    "email": "bob.katter.mp@aph.gov.au",
+    "state": "QLD",
+    "party": "KAP"
+  },
+  "Kingsford Smith": {
+    "name": "Matt Thistlethwaite",
+    "salutation": "Mr Thistlethwaite",
+    "email": "matt.thistlethwaite.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "ALP"
+  },
+  "Kingston": {
+    "name": "Amanda Rishworth",
+    "salutation": "Ms Rishworth",
+    "email": "amanda.rishworth.mp@aph.gov.au",
+    "state": "SA",
+    "party": "ALP"
+  },
+  "Kooyong": {
+    "name": "Monique Ryan",
+    "salutation": "Dr Ryan",
+    "email": "monique.ryan.mp@aph.gov.au",
+    "state": "VIC",
+    "party": "IND"
+  },
+  "La Trobe": {
+    "name": "Jason Wood",
+    "salutation": "Mr Wood",
+    "email": "jason.wood.mp@aph.gov.au",
+    "state": "VIC",
+    "party": "LP"
+  },
+  "Lalor": {
+    "name": "Joanne Ryan",
+    "salutation": "Ms Ryan",
+    "email": "joanne.ryan.mp@aph.gov.au",
+    "state": "VIC",
+    "party": "ALP"
+  },
+  "Leichhardt": {
+    "name": "Matt Smith",
+    "salutation": "Mr Smith",
+    "email": "matt.smith.mp@aph.gov.au",
+    "state": "QLD",
+    "party": "ALP"
+  },
+  "Lilley": {
+    "name": "Anika Wells",
+    "salutation": "Ms Wells",
+    "email": "anika.wells.mp@aph.gov.au",
+    "state": "QLD",
+    "party": "ALP"
+  },
+  "Lindsay": {
+    "name": "Melissa McIntosh",
+    "salutation": "Mrs McIntosh",
+    "email": "melissa.mcintosh.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "LP"
+  },
+  "Lingiari": {
+    "name": "Marion Scrymgour",
+    "salutation": "Ms Scrymgour",
+    "email": "marion.scrymgour.mp@aph.gov.au",
+    "state": "NT",
+    "party": "ALP"
+  },
+  "Longman": {
+    "name": "Terry Young",
+    "salutation": "Mr Young",
+    "email": "terry.young.mp@aph.gov.au",
+    "state": "QLD",
+    "party": "LNP"
+  },
+  "Lyne": {
+    "name": "Alison Penfold",
+    "salutation": "Ms Penfold",
+    "email": "alison.penfold.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "NATS"
+  },
+  "Lyons": {
+    "name": "Rebecca White",
+    "salutation": "Ms White",
+    "email": "rebecca.white.mp@aph.gov.au",
+    "state": "TAS",
+    "party": "ALP"
+  },
+  "Macarthur": {
+    "name": "Mike Freelander",
+    "salutation": "Dr Freelander",
+    "email": "mike.freelander.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "ALP"
+  },
+  "Mackellar": {
+    "name": "Sophie Scamps",
+    "salutation": "Dr Scamps",
+    "email": "sophie.scamps.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "IND"
+  },
+  "Macnamara": {
+    "name": "Josh Burns",
+    "salutation": "Mr Burns",
+    "email": "josh.burns.mp@aph.gov.au",
+    "state": "VIC",
+    "party": "ALP"
+  },
+  "Macquarie": {
+    "name": "Susan Templeman",
+    "salutation": "Ms Templeman",
+    "email": "susan.templeman.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "ALP"
+  },
+  "Makin": {
+    "name": "Tony Zappia",
+    "salutation": "Mr Zappia",
+    "email": "tony.zappia.mp@aph.gov.au",
+    "state": "SA",
+    "party": "ALP"
+  },
+  "Mallee": {
+    "name": "Anne Webster",
+    "salutation": "Dr Webster",
+    "email": "anne.webster.mp@aph.gov.au",
+    "state": "VIC",
+    "party": "NATS"
+  },
+  "Maranoa": {
+    "name": "David Littleproud",
+    "salutation": "Mr Littleproud",
+    "email": "david.littleproud.mp@aph.gov.au",
+    "state": "QLD",
+    "party": "LNP"
+  },
+  "Maribyrnong": {
+    "name": "Jo Briskey",
+    "salutation": "Ms Briskey",
+    "email": "jo.briskey.mp@aph.gov.au",
+    "state": "VIC",
+    "party": "ALP"
+  },
+  "Mayo": {
+    "name": "Rebekha Sharkie",
+    "salutation": "Ms Sharkie",
+    "email": "rebekha.sharkie.mp@aph.gov.au",
+    "state": "SA",
+    "party": "CA"
+  },
   "McEwen": {
     "name": "Rob Mitchell",
     "salutation": "Mr Mitchell",
     "email": "rob.mitchell.mp@aph.gov.au",
     "state": "VIC",
-    "party": "Australian Labor Party"
+    "party": "ALP"
+  },
+  "McMahon": {
+    "name": "Chris Bowen",
+    "salutation": "Mr Bowen",
+    "email": "chris.bowen.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "ALP"
+  },
+  "McPherson": {
+    "name": "Leon Rebello",
+    "salutation": "Mr Rebello",
+    "email": "leon.rebello.mp@aph.gov.au",
+    "state": "QLD",
+    "party": "LNP"
+  },
+  "Melbourne": {
+    "name": "Sarah Witty",
+    "salutation": "Ms Witty",
+    "email": "sarah.witty.mp@aph.gov.au",
+    "state": "VIC",
+    "party": "ALP"
+  },
+  "Menzies": {
+    "name": "Gabriel Ng",
+    "salutation": "Mr Ng",
+    "email": "gabriel.ng.mp@aph.gov.au",
+    "state": "VIC",
+    "party": "ALP"
+  },
+  "Mitchell": {
+    "name": "Alex Hawke",
+    "salutation": "Mr Hawke",
+    "email": "alex.hawke.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "LP"
+  },
+  "Monash": {
+    "name": "Mary Aldred",
+    "salutation": "Ms Aldred",
+    "email": "mary.aldred.mp@aph.gov.au",
+    "state": "VIC",
+    "party": "LP"
+  },
+  "Moncrieff": {
+    "name": "Angie Bell",
+    "salutation": "Ms Bell",
+    "email": "angie.bell.mp@aph.gov.au",
+    "state": "QLD",
+    "party": "LNP"
+  },
+  "Moore": {
+    "name": "Tom French",
+    "salutation": "Mr French",
+    "email": "tom.french.mp@aph.gov.au",
+    "state": "WA",
+    "party": "ALP"
+  },
+  "Moreton": {
+    "name": "Julie-Ann Campbell",
+    "salutation": "Ms Campbell",
+    "email": "julie-ann.campbell.mp@aph.gov.au",
+    "state": "QLD",
+    "party": "ALP"
+  },
+  "New England": {
+    "name": "Barnaby Joyce",
+    "salutation": "Mr Joyce",
+    "email": "barnaby.joyce.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "ON"
+  },
+  "Newcastle": {
+    "name": "Sharon Claydon",
+    "salutation": "Ms Claydon",
+    "email": "sharon.claydon.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "ALP"
+  },
+  "Nicholls": {
+    "name": "Sam Birrell",
+    "salutation": "Mr Birrell",
+    "email": "sam.birrell.mp@aph.gov.au",
+    "state": "VIC",
+    "party": "NATS"
+  },
+  "O'Connor": {
+    "name": "Rick Wilson",
+    "salutation": "Mr Wilson",
+    "email": "rick.wilson.mp@aph.gov.au",
+    "state": "WA",
+    "party": "LP"
+  },
+  "Oxley": {
+    "name": "Milton Dick",
+    "salutation": "Mr Dick",
+    "email": "milton.dick.mp@aph.gov.au",
+    "state": "QLD",
+    "party": "ALP"
+  },
+  "Page": {
+    "name": "Kevin Hogan",
+    "salutation": "Mr Hogan",
+    "email": "kevin.hogan.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "NATS"
+  },
+  "Parkes": {
+    "name": "Jamie Chaffey",
+    "salutation": "Mr Chaffey",
+    "email": "jamie.chaffey.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "NATS"
+  },
+  "Parramatta": {
+    "name": "Andrew Charlton",
+    "salutation": "Dr Charlton",
+    "email": "andrew.charlton.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "ALP"
+  },
+  "Paterson": {
+    "name": "Meryl Swanson",
+    "salutation": "Ms Swanson",
+    "email": "meryl.swanson.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "ALP"
+  },
+  "Pearce": {
+    "name": "Tracey Roberts",
+    "salutation": "Ms Roberts",
+    "email": "tracey.roberts.mp@aph.gov.au",
+    "state": "WA",
+    "party": "ALP"
+  },
+  "Perth": {
+    "name": "Patrick Gorman",
+    "salutation": "Mr Gorman",
+    "email": "patrick.gorman.mp@aph.gov.au",
+    "state": "WA",
+    "party": "ALP"
+  },
+  "Petrie": {
+    "name": "Emma Comer",
+    "salutation": "Ms Comer",
+    "email": "emma.comer.mp@aph.gov.au",
+    "state": "QLD",
+    "party": "ALP"
+  },
+  "Rankin": {
+    "name": "Jim Chalmers",
+    "salutation": "Dr Chalmers",
+    "email": "jim.chalmers.mp@aph.gov.au",
+    "state": "QLD",
+    "party": "ALP"
+  },
+  "Reid": {
+    "name": "Sally Sitou",
+    "salutation": "Ms Sitou",
+    "email": "sally.sitou.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "ALP"
+  },
+  "Richmond": {
+    "name": "Justine Elliot",
+    "salutation": "Mrs Elliot",
+    "email": "justine.elliot.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "ALP"
+  },
+  "Riverina": {
+    "name": "Michael McCormack",
+    "salutation": "Mr McCormack",
+    "email": "michael.mccormack.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "NATS"
+  },
+  "Robertson": {
+    "name": "Gordon Reid",
+    "salutation": "Dr Reid",
+    "email": "gordon.reid.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "ALP"
+  },
+  "Ryan": {
+    "name": "Elizabeth Watson-Brown",
+    "salutation": "Ms Watson-Brown",
+    "email": "elizabeth.watson-brown.mp@aph.gov.au",
+    "state": "QLD",
+    "party": "AG"
+  },
+  "Scullin": {
+    "name": "Andrew Giles",
+    "salutation": "Mr Giles",
+    "email": "andrew.giles.mp@aph.gov.au",
+    "state": "VIC",
+    "party": "ALP"
+  },
+  "Shortland": {
+    "name": "Pat Conroy",
+    "salutation": "Mr Conroy",
+    "email": "pat.conroy.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "ALP"
+  },
+  "Solomon": {
+    "name": "Luke Gosling",
+    "salutation": "Mr Gosling",
+    "email": "luke.gosling.mp@aph.gov.au",
+    "state": "NT",
+    "party": "ALP"
+  },
+  "Spence": {
+    "name": "Matt Burnell",
+    "salutation": "Mr Burnell",
+    "email": "matt.burnell.mp@aph.gov.au",
+    "state": "SA",
+    "party": "ALP"
+  },
+  "Sturt": {
+    "name": "Claire Clutterham",
+    "salutation": "Ms Clutterham",
+    "email": "claire.clutterham.mp@aph.gov.au",
+    "state": "SA",
+    "party": "ALP"
+  },
+  "Swan": {
+    "name": "Zaneta Mascarenhas",
+    "salutation": "Ms Mascarenhas",
+    "email": "zaneta.mascarenhas.mp@aph.gov.au",
+    "state": "WA",
+    "party": "ALP"
+  },
+  "Sydney": {
+    "name": "Tanya Plibersek",
+    "salutation": "Ms Plibersek",
+    "email": "tanya.plibersek.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "ALP"
+  },
+  "Tangney": {
+    "name": "Sam Lim",
+    "salutation": "Mr Lim",
+    "email": "sam.lim.mp@aph.gov.au",
+    "state": "WA",
+    "party": "ALP"
+  },
+  "Wannon": {
+    "name": "Dan Tehan",
+    "salutation": "Mr Tehan",
+    "email": "dan.tehan.mp@aph.gov.au",
+    "state": "VIC",
+    "party": "LP"
+  },
+  "Warringah": {
+    "name": "Zali Steggall",
+    "salutation": "Ms Steggall",
+    "email": "zali.steggall.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "IND"
+  },
+  "Watson": {
+    "name": "Tony Burke",
+    "salutation": "Mr Burke",
+    "email": "tony.burke.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "ALP"
+  },
+  "Wentworth": {
+    "name": "Allegra Spender",
+    "salutation": "Ms Spender",
+    "email": "allegra.spender.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "IND"
+  },
+  "Werriwa": {
+    "name": "Anne Stanley",
+    "salutation": "Ms Stanley",
+    "email": "anne.stanley.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "ALP"
+  },
+  "Whitlam": {
+    "name": "Carol Berry",
+    "salutation": "Ms Berry",
+    "email": "carol.berry.mp@aph.gov.au",
+    "state": "NSW",
+    "party": "ALP"
+  },
+  "Wide Bay": {
+    "name": "Llew O'Brien",
+    "salutation": "Mr O'Brien",
+    "email": "llew.o'brien.mp@aph.gov.au",
+    "state": "QLD",
+    "party": "LNP"
+  },
+  "Wills": {
+    "name": "Peter Khalil",
+    "salutation": "Mr Khalil",
+    "email": "peter.khalil.mp@aph.gov.au",
+    "state": "VIC",
+    "party": "ALP"
+  },
+  "Wright": {
+    "name": "Scott Buchholz",
+    "salutation": "Mr Buchholz",
+    "email": "scott.buchholz.mp@aph.gov.au",
+    "state": "QLD",
+    "party": "LNP"
   }
 }
