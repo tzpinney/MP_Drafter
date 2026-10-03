@@ -64,7 +64,7 @@ const CONCERNS = {
   },
   effectiveness: {
     title: "It won't work",
-    point: "Age checks don't work. Verifying an already-verified adult is like adding a second key to a gate that is already locked: once the gate is open, it stays open to whoever uses the device, adult or child. The check adds no real assurance, creates new sensitive data that can be stolen, and can be bypassed with VPNs or borrowed accounts. The burden falls on compliant adults.",
+    point: "These rules get in the way of adults doing nothing wrong, yet anyone who actually wants to evade them can do so trivially — a VPN, a borrowed account, or simply going around the official services. In practice the current implementation pushes people towards VPNs, piracy and other evasive behaviour. It does not fix the harms the scheme was meant to address; it creates new ones, by making the right way too hard and the wrong way easy and attractive. The burden falls on the compliant, while the determined are barely slowed.",
     ask: "Require independent, published evidence that age verification actually reduces harm to children before it is expanded any further.",
   },
 };
