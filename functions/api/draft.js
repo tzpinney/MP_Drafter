@@ -98,6 +98,7 @@ function buildPrompt({ ids, tone, years, electorate, personal }) {
   const asks = uniq(list.map(c => c.ask));
   const lines = [
     `Write the body of a letter from an Australian voter to their federal MP${electorate ? ` (Member for ${electorate})` : ""}, objecting to mandatory online age verification (the social media minimum age rules and the eSafety Age-Restricted Material Codes covering app stores, search engines and other online services).`,
+    "Open by acknowledging that protecting children from genuinely harmful content is a worthy goal the writer supports. Make the writer's primary objection the poor and inept implementation of these measures — the social media minimum age rules especially — with government overreach that restricts the online freedom of law-abiding adults as a secondary concern.",
     "",
     `Tone: ${toneLine}. Australian English. Plain language, first person, 300 to 450 words. Use your own wording and structure rather than a template.`,
     `Do not include a greeting, sign-off, name or address. Start straight after "Dear ...," and stop before "Yours sincerely".`,

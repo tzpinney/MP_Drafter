@@ -272,6 +272,7 @@ function aiPrompt() {
   const tone = state.tone === "firm" ? "firm and direct, but respectful" : "courteous and constructive";
   return [
     "Write the body of a letter from an Australian voter to their federal MP" + (m.electorate ? " (Member for " + m.electorate + ")" : "") + ", objecting to mandatory online age verification (the social media minimum age rules and the eSafety Age-Restricted Material Codes covering app stores, search engines and other online services).",
+    "Open by acknowledging that protecting children from genuinely harmful content is a worthy goal the writer supports. Make the writer's primary objection the poor and inept implementation of these measures — the social media minimum age rules especially — with government overreach that restricts the online freedom of law-abiding adults as a secondary concern.",
     "",
     "Tone: " + tone + ". Australian English. Plain language, first person, 300 to 450 words. Use your own wording and structure rather than a template.",
     "Do not include a greeting, sign-off, name or address. Start straight after \"Dear ...,\" and stop before \"Yours sincerely\".",
