@@ -134,12 +134,13 @@ footer { margin-top: 36px; color: var(--muted); font-size: 12.5px; display: grid
           <label for="email">Email (optional)<input id="email" type="email" autocomplete="email" placeholder="you@example.com"></label>
           <label class="full" for="street">Street address<input id="street" type="text" autocomplete="street-address" placeholder="Your MP's office checks you live in the electorate"></label>
           <label for="suburb">Suburb<input id="suburb" type="text" autocomplete="address-level2" placeholder="e.g. Whittlesea"></label>
-          <label for="postcode">Postcode<input id="postcode" type="text" inputmode="numeric" maxlength="4" autocomplete="postal-code" value="3757"></label>
+          <label for="postcode">Postcode<input id="postcode" type="text" inputmode="numeric" maxlength="4" autocomplete="postal-code" placeholder="e.g. 3757"></label>
         </div>
       </section>
 
       <section class="step" aria-labelledby="s2">
         <h2 id="s2"><span class="n">2</span>Your MP</h2>
+        <p class="hint" id="mpPrompt">Enter your suburb and postcode above and your MP will appear here.</p>
         <div id="mpFound" class="mp-card" hidden></div>
         <div id="mpChoice" hidden>
           <div class="notice" id="mpChoiceNote"></div>
@@ -403,6 +404,7 @@ const pick = (arr, r) => arr[Math.floor(r() * arr.length)];
 function resolve() {
   const pc = $("postcode").value.trim();
   const sub = $("suburb").value.trim().toUpperCase();
+  if (!pc) return { mode: "empty" };          // nothing entered yet — don't show an error
   const byPc = LOCALITIES[pc];
   if (byPc) {
     let list = (sub && byPc[sub]) ? byPc[sub]
@@ -469,6 +471,7 @@ function recipients() {
 
 function renderMp() {
   const r = resolve();
+  $("mpPrompt").hidden = r.mode !== "empty";
   $("mpFound").hidden = r.mode !== "found";
   $("mpChoice").hidden = r.mode !== "choice";
   $("mpManual").hidden = r.mode !== "manual";
