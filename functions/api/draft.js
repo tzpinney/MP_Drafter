@@ -49,7 +49,7 @@ const CONCERNS = {
   },
   home: {
     title: "Government in my home",
-    point: "It is not the government's role to control what an adult accesses on their own devices at home. Parents already have tools to supervise children; responsibility should rest with families, supported by education and enforcement against genuinely harmful operators.",
+    point: "What an adult does on their own devices is their own business. It should not be gated behind onerous identity verification, invasive facial scans, or guidelines so loose that people are effectively pushed to hand over a credit card just to prove their age, let alone a system that lets authorities examine everything a person does online. Parents already have tools to supervise children; responsibility should rest with families, supported by education and enforcement against genuinely harmful operators.",
     ask: "Oppose any further expansion of age verification, and rely on the parental controls device makers are already required to provide, rather than checks on every adult.",
   },
   accountability: {
