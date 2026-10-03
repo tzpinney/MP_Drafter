@@ -125,14 +125,14 @@ const CONCERNS = [
 
 const OPEN = {
   firm: [
-    "I am writing as a constituent of {electorate} to object to mandatory online age verification, including the social media minimum age rules and the Age-Restricted Material Codes now applying to app stores, search engines and other online services. I regard this as government overreach that restricts the online freedom of law-abiding adults without proper justification.",
-    "As a voter in {electorate}, I want to register my strong opposition to the expanding regime of online age verification in Australia. These rules impose real costs on law-abiding adults, and the case for them has not been made.",
-    "I am writing to you as my local member to oppose the age verification requirements now being rolled out across social media, app stores, search engines and other online services. I believe they go well beyond what is justified."
+    "I am writing as a constituent of {electorate} to object to mandatory online age verification, including the social media minimum age rules and the Age-Restricted Material Codes now applying to app stores, search engines and other online services. Protecting children from genuinely harmful content is a goal I support — but this is the wrong way to pursue it. I regard these measures as government overreach that restricts the online freedom of law-abiding adults without proper justification.",
+    "As a voter in {electorate}, I want to register my strong opposition to the expanding regime of online age verification in Australia. Keeping children safe online is a worthy aim, but these rules pursue it by loading real costs onto law-abiding adults, and the case for them has not been made.",
+    "I am writing to you as my local member to oppose the age verification requirements now being rolled out across social media, app stores, search engines and other online services. I share the goal of protecting children, but these measures reach well beyond what that goal can justify."
   ],
   polite: [
-    "I am writing as a constituent of {electorate} to share my concerns about mandatory online age verification, including the social media minimum age rules and the Age-Restricted Material Codes now applying to app stores, search engines and other online services.",
-    "As a voter in {electorate}, I would like to raise some concerns about the age verification requirements being introduced across online services in Australia, and ask for your help.",
-    "I am writing to you as my local member about the online age verification rules now being rolled out. I understand the intention behind them, but I believe they place an unfair burden on adults like me."
+    "I am writing as a constituent of {electorate} to share my concerns about mandatory online age verification, including the social media minimum age rules and the Age-Restricted Material Codes now applying to app stores, search engines and other online services. I recognise these rules are meant to protect children — a goal I support — but I do not believe this is the right way to achieve it.",
+    "As a voter in {electorate}, I would like to raise some concerns about the age verification requirements being introduced across online services in Australia, and ask for your help. Protecting children online matters to me too, which is why I want these measures to be proportionate and effective rather than sweeping.",
+    "I am writing to you as my local member about the online age verification rules now being rolled out. I understand they are meant to keep children safe, and I share that goal — but I believe they place an unfair burden on adults like me."
   ]
 };
 const ASK_INTRO = { firm: ["I ask that you:", "I am asking you to:"], polite: ["I would be grateful if you would:", "I respectfully ask that you:"] };
