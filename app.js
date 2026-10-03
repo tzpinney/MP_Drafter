@@ -352,9 +352,9 @@ document.querySelectorAll("[data-copy]").forEach(b => b.onclick = () => copy($(b
 // --- Built-in AI writer (path 1) -------------------------------------------------------
 // Only the selected concerns, account-age, tone, electorate name and the voter's own
 // paragraph are sent. Name, address, suburb, postcode and email never leave the browser.
-function failSoftAi() {
+function failSoftAi(reason) {
   state.source = "built"; state.dirty = false; $("dirtyNote").hidden = true; update();
-  toast("The built-in writer isn't available right now — here's a draft from your choices, or use your own AI below.");
+  toast("The built-in writer isn't available right now" + (reason ? " [" + reason + "]" : "") + " — here's a draft from your choices, or use your own AI below.");
 }
 async function useBuiltinAi() {
   const token = window.turnstile ? window.turnstile.getResponse() : "";
@@ -374,8 +374,8 @@ async function useBuiltinAi() {
     if (data && data.ok && data.body) {
       state.aiBody = data.body; state.source = "ai"; state.dirty = false; $("dirtyNote").hidden = true; update();
       toast("Drafted by the built-in writer. Read it over and edit as you like.");
-    } else { failSoftAi(); }
-  } catch (e) { failSoftAi(); }
+    } else { failSoftAi(data && data.reason); }
+  } catch (e) { failSoftAi("network"); }
   if (window.turnstile) window.turnstile.reset();
 }
 function initBuiltinAi() {
