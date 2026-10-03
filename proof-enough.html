@@ -1,0 +1,470 @@
+<title>Proof Enough</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+/* Layout: two columns on wide screens. Left = numbered steps the voter works through; right = a sticky letter on "paper", with the send panel under it. Stacks to one column on phones. Palette borrows the House of Representatives chamber green. */
+:root {
+  --bg: #f2f4f1;
+  --surface: #ffffff;
+  --paper: #fdfdfb;
+  --fg: #1b2420;
+  --muted: #5b6a63;
+  --line: #d5ddd8;
+  --accent: #2c6a4c;
+  --accent-ink: #ffffff;
+  --accent-soft: #e2eee7;
+  --warn: #8a5a12;
+  --warn-soft: #f6ecda;
+  --focus: #1f7a55;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-ui: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-letter: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --r: 10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121815; --surface: #1a221e; --paper: #1e2722; --fg: #e4ebe7; --muted: #9db0a6;
+    --line: #2f3c35; --accent: #6cc39a; --accent-ink: #0d1a14; --accent-soft: #213a2e;
+    --warn: #e2b36a; --warn-soft: #3a2f1c; --focus: #8fdcb7; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #121815; --surface: #1a221e; --paper: #1e2722; --fg: #e4ebe7; --muted: #9db0a6;
+  --line: #2f3c35; --accent: #6cc39a; --accent-ink: #0d1a14; --accent-soft: #213a2e;
+  --warn: #e2b36a; --warn-soft: #3a2f1c; --focus: #8fdcb7; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font: 15px/1.55 var(--font-ui); }
+.wrap { max-width: 1180px; margin: 0 auto; padding-inline: 20px; padding-block: 28px 48px; }
+header.top { display: grid; gap: 8px; max-width: 70ch; margin-bottom: 28px; }
+.eyebrow { font-size: 12px; letter-spacing: .09em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+h1 { font-family: var(--font-display); font-size: clamp(30px, 5vw, 46px); line-height: 1.05; margin: 0; text-wrap: balance; letter-spacing: -.01em; }
+.lede { color: var(--muted); margin: 0; max-width: 62ch; }
+.grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 28px; align-items: start; }
+@media (max-width: 900px) { .grid { grid-template-columns: minmax(0, 1fr); } }
+.steps { display: grid; gap: 18px; min-width: 0; }
+.step { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 18px; display: grid; gap: 14px; min-width: 0; }
+.step h2 { margin: 0; font-family: var(--font-display); font-size: 19px; display: flex; gap: 10px; align-items: baseline; }
+.step h2 .n { font-family: var(--font-ui); font-size: 12px; font-weight: 600; color: var(--accent); border: 1.5px solid var(--accent); border-radius: 99px; width: 24px; height: 24px; display: inline-grid; place-items: center; flex: none; transform: translateY(-2px); }
+.hint { color: var(--muted); font-size: 13px; margin: 0; }
+.fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.fields .full { grid-column: 1 / -1; }
+@media (max-width: 520px) { .fields { grid-template-columns: minmax(0, 1fr); } }
+label { display: grid; gap: 5px; font-size: 13px; font-weight: 500; }
+input[type=text], input[type=email], input[type=number], textarea, select {
+  font: inherit; color: var(--fg); background: var(--paper); border: 1px solid var(--line); border-radius: 7px; padding: 9px 11px; width: 100%; min-width: 0;
+}
+textarea { resize: vertical; min-height: 96px; line-height: 1.5; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.mp-card { border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; display: grid; gap: 2px; background: var(--paper); }
+.mp-card strong { font-size: 15px; }
+.mp-card .addr { font-family: ui-monospace, "SFMono-Regular", Menlo, monospace; font-size: 13px; color: var(--muted); word-break: break-all; }
+.notice { background: var(--warn-soft); color: var(--fg); border-radius: 8px; padding: 10px 12px; font-size: 13px; }
+.notice a { color: var(--warn); font-weight: 600; }
+.cc { display: grid; gap: 8px; }
+.check { display: flex; gap: 10px; align-items: flex-start; font-weight: 400; font-size: 14px; }
+.check input { margin-top: 4px; accent-color: var(--accent); }
+.check small { display: block; color: var(--muted); font-size: 12px; font-family: ui-monospace, Menlo, monospace; }
+.concerns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+@media (max-width: 520px) { .concerns { grid-template-columns: minmax(0, 1fr); } }
+.concern { text-align: left; font: inherit; color: var(--fg); background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 11px 12px 11px 38px; cursor: pointer; position: relative; display: grid; gap: 2px; min-width: 0; }
+.concern::before { content: ""; position: absolute; left: 12px; top: 13px; width: 16px; height: 16px; border: 1.5px solid var(--muted); border-radius: 4px; }
+.concern[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); }
+.concern[aria-pressed="true"]::before { background: var(--accent); border-color: var(--accent); }
+.concern[aria-pressed="true"]::after { content: ""; position: absolute; left: 17px; top: 15px; width: 5px; height: 9px; border: solid var(--accent-ink); border-width: 0 2px 2px 0; transform: rotate(45deg); }
+.concern b { font-weight: 600; font-size: 14px; }
+.concern span { color: var(--muted); font-size: 12.5px; line-height: 1.4; }
+.inline-field { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; font-size: 13px; }
+.inline-field input { width: 90px; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.seg button { font: inherit; font-size: 13px; padding: 7px 14px; border: 0; background: var(--paper); color: var(--fg); cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.btn { font: inherit; font-size: 14px; font-weight: 500; padding: 9px 14px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+.btn:hover { border-color: var(--accent); }
+.btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.btn.small { font-size: 12.5px; padding: 5px 10px; }
+.ai { border-top: 1px dashed var(--line); padding-top: 14px; display: grid; gap: 10px; }
+.ai h3, .send h3 { margin: 0; font-size: 14px; font-weight: 600; }
+.letter-col { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 16px); display: grid; gap: 16px; min-width: 0; }
+@media (max-width: 900px) { .letter-col { position: static; } }
+.paper { background: var(--paper); border: 1px solid var(--line); border-radius: 4px; box-shadow: 0 1px 0 var(--line), 0 12px 30px -18px rgba(20, 40, 30, .35); padding: 22px 24px; display: grid; gap: 10px; min-width: 0; }
+.paper-head { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; align-items: center; font-size: 12px; color: var(--muted); }
+.source { font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
+#letter { font-family: var(--font-letter); font-size: 16px; line-height: 1.6; border: 0; background: transparent; padding: 0; min-height: 520px; resize: vertical; }
+#letter:focus-visible { outline-offset: 6px; }
+.meta { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.linkish { font: inherit; background: none; border: 0; color: var(--accent); cursor: pointer; padding: 0; text-decoration: underline; }
+.send { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 16px 18px; display: grid; gap: 12px; }
+.addr-row { display: grid; grid-template-columns: 56px minmax(0, 1fr) auto; gap: 8px; align-items: center; font-size: 13px; }
+.addr-row .k { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .06em; }
+.addr-row .v { font-family: ui-monospace, Menlo, monospace; word-break: break-all; user-select: all; }
+.toast { min-height: 18px; font-size: 13px; color: var(--accent); }
+footer { margin-top: 36px; color: var(--muted); font-size: 12.5px; display: grid; gap: 6px; max-width: 75ch; }
+@media (prefers-reduced-motion: no-preference) { .concern, .btn { transition: border-color .15s, background-color .15s; } }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="eyebrow">Write to your federal MP</div>
+    <h1>I've already proved I'm an adult.</h1>
+    <p class="lede">Build a personal letter to your Member of Parliament objecting to mandatory online age verification. Pick the concerns that apply to you, add a few words of your own, then send it from your own email account.</p>
+  </header>
+
+  <div class="grid">
+    <div class="steps">
+
+      <section class="step" aria-labelledby="s1">
+        <h2 id="s1"><span class="n">1</span>Your details</h2>
+        <p class="hint">These only go into the signature. They stay in your browser and are never sent to an AI.</p>
+        <div class="fields">
+          <label for="name">Full name<input id="name" type="text" autocomplete="name" placeholder="e.g. Sam Taylor"></label>
+          <label for="email">Email (optional)<input id="email" type="email" autocomplete="email" placeholder="you@example.com"></label>
+          <label class="full" for="street">Street address<input id="street" type="text" autocomplete="street-address" placeholder="Your MP's office checks you live in the electorate"></label>
+          <label for="suburb">Suburb<input id="suburb" type="text" autocomplete="address-level2" placeholder="e.g. Whittlesea"></label>
+          <label for="postcode">Postcode<input id="postcode" type="text" inputmode="numeric" maxlength="4" autocomplete="postal-code" value="3757"></label>
+        </div>
+      </section>
+
+      <section class="step" aria-labelledby="s2">
+        <h2 id="s2"><span class="n">2</span>Your MP</h2>
+        <div id="mpFound" class="mp-card" hidden></div>
+        <div id="mpManual" hidden>
+          <div class="notice">This prototype only knows a few postcodes. Find your electorate on the <a href="https://electorate.aec.gov.au/" target="_blank" rel="noopener">AEC electorate finder</a>, then enter your MP below.</div>
+          <div class="fields" style="margin-top:12px">
+            <label for="mpName">MP's name<input id="mpName" type="text" placeholder="e.g. Jane Smith"></label>
+            <label for="mpTitle">Title<select id="mpTitle"><option>Mr</option><option>Ms</option><option>Mrs</option><option>Dr</option><option value="">None</option></select></label>
+            <label for="mpElectorate">Electorate<input id="mpElectorate" type="text" placeholder="e.g. Scullin"></label>
+            <label for="mpEmail">MP's email<input id="mpEmail" type="email" placeholder="firstname.lastname.mp@aph.gov.au"></label>
+          </div>
+        </div>
+        <div class="cc">
+          <label class="check" for="ccMinister"><input id="ccMinister" type="checkbox" checked><span>Copy the Minister for Communications, Anika Wells<small>minister.wells@mo.communications.gov.au</small></span></label>
+          <label class="check" for="ccEsafety"><input id="ccEsafety" type="checkbox" checked><span>Copy the eSafety Commissioner, Julie Inman Grant<small>enquiries@esafety.gov.au</small></span></label>
+        </div>
+      </section>
+
+      <section class="step" aria-labelledby="s3">
+        <h2 id="s3"><span class="n">3</span>Your concerns</h2>
+        <p class="hint">Tap the ones that are true for you. Two to four makes a stronger letter than all nine.</p>
+        <div class="concerns" id="concerns"></div>
+        <div class="inline-field" id="yearsWrap"><label for="years" style="display:flex;gap:8px;align-items:center;font-weight:400">My oldest accounts are about <input id="years" type="number" min="1" max="60" value="20"> years old</label></div>
+      </section>
+
+      <section class="step" aria-labelledby="s4">
+        <h2 id="s4"><span class="n">4</span>In your own words</h2>
+        <p class="hint">MPs' offices often count identical campaign letters as one. A sentence or two about why this matters to you makes yours count.</p>
+        <label for="personal" class="sr-label">Why this matters to you<textarea id="personal" placeholder="e.g. I run a small business and already hand over my ID to banks, the ATO and my phone company. I shouldn't have to scan my face to download an app."></textarea></label>
+        <div class="row">
+          <span style="font-size:13px;color:var(--muted)">Tone</span>
+          <div class="seg" role="group" aria-label="Tone">
+            <button type="button" id="toneFirm" aria-pressed="true">Firm</button>
+            <button type="button" id="tonePolite" aria-pressed="false">Courteous</button>
+          </div>
+          <button type="button" class="btn small" id="shuffle">New wording</button>
+        </div>
+
+        <div class="ai">
+          <h3>Want it rewritten by an AI?</h3>
+          <p class="hint">Opens ChatGPT or Claude with your concerns and your own words filled in, using your own account. Your name and address are left out. Copy the result and paste it below.</p>
+          <div class="row">
+            <a class="btn" id="toChatGPT" href="#" target="_blank" rel="noopener">Draft with ChatGPT</a>
+            <a class="btn" id="toClaude" href="#" target="_blank" rel="noopener">Draft with Claude</a>
+            <button type="button" class="btn" id="copyPrompt">Copy prompt</button>
+          </div>
+          <label for="aiPaste">Paste the AI's draft here<textarea id="aiPaste" placeholder="Paste the body of the letter. The greeting, signature and your details are added for you."></textarea></label>
+          <div class="row"><button type="button" class="btn" id="useAi">Use this draft</button></div>
+        </div>
+      </section>
+    </div>
+
+    <div class="letter-col">
+      <article class="paper" aria-label="Your letter">
+        <div class="paper-head">
+          <span class="source" id="sourceLabel">Built from your choices</span>
+          <span id="dirtyNote" hidden>Edited by you · <button type="button" class="linkish" id="resetEdits">Discard edits</button></span>
+        </div>
+        <label for="subject" style="font-size:12px;color:var(--muted)">Subject<input id="subject" type="text" value="Constituent objection to mandatory online age verification"></label>
+        <textarea id="letter" aria-label="Letter text, editable" spellcheck="true"></textarea>
+        <div class="meta"><span id="wordCount">0 words</span><span id="uniq"></span></div>
+      </article>
+
+      <section class="send" aria-labelledby="sendH">
+        <h3 id="sendH">Send it from your own email</h3>
+        <div class="addr-row"><span class="k">To</span><span class="v" id="toV"></span><button type="button" class="btn small" data-copy="toV">Copy</button></div>
+        <div class="addr-row"><span class="k">Cc</span><span class="v" id="ccV"></span><button type="button" class="btn small" data-copy="ccV">Copy</button></div>
+        <div class="row">
+          <a class="btn primary" id="gmail" href="#" target="_blank" rel="noopener">Open in Gmail</a>
+          <a class="btn" id="outlook" href="#" target="_blank" rel="noopener">Open in Outlook.com</a>
+          <button type="button" class="btn" id="copyLetter">Copy letter</button>
+          <a class="btn" id="mailto" href="#">Email app</a>
+        </div>
+        <p class="hint">"Email app" may not open on every device. If nothing happens, copy the addresses and the letter into a new email.</p>
+        <div class="toast" id="toast" role="status" aria-live="polite"></div>
+      </section>
+    </div>
+  </div>
+
+  <footer>
+    <span>Prototype. Nothing you type here is sent anywhere until you choose to open your email or an AI assistant.</span>
+    <span>Authorised by [Name], [Town].</span>
+  </footer>
+</div>
+
+<script>
+const MPS = {
+  McEwen: { name: "Rob Mitchell", salutation: "Mr Mitchell", email: "rob.mitchell.mp@aph.gov.au", party: "Australian Labor Party" }
+};
+const POSTCODES = { "3756": ["McEwen"], "3757": ["McEwen"] };
+const CC = {
+  ccMinister: "minister.wells@mo.communications.gov.au",
+  ccEsafety: "enquiries@esafety.gov.au"
+};
+
+const CONCERNS = [
+  { id: "adult", title: "I'm already a verified adult", sub: "My phone plan, payments and device accounts already require me to be 18+.",
+    point: "My phone plan, payment methods and the accounts that run my devices are held in my name under contracts that require me to be 18 or older. I have already proved my age to these same companies.",
+    text: [
+      "I am already a verified adult. My phone plan, my payment methods and the accounts that operate my devices are all held in my name under contracts that require me to be 18 or older. It is unreasonable to make me prove my age again, repeatedly, to the same companies whose products I have already been accepted as an adult to buy and use.",
+      "The companies now being told to check my age already know I am an adult. I could not have signed my phone contract, added a credit card or opened the accounts that run my devices otherwise. Asking me to prove it again achieves nothing except more collection of my personal information.",
+      "Every device and account I use was set up under contracts available only to people aged 18 or over. My age has been established many times. A rule that ignores this and demands fresh proof treats every adult as a suspect."
+    ],
+    ask: "Make it a legal requirement, across both the social media rules and the Age-Restricted Material Codes, that services accept existing evidence of adulthood (contracts, payment details, long-standing accounts) before asking anyone for a face scan or ID. Today this is optional regulator guidance, not a right." },
+  { id: "longstanding", title: "My accounts are decades old", sub: "An account that has existed this long proves its holder is an adult.",
+    point: "Many of my accounts are about {years} years old. An account that old is itself proof its holder is an adult. Making me scan my face or upload ID for it is excessive, unsafe and ineffective: it re-proves something already proven, and creates a second key to the same gate that adds no security but does add a new store of sensitive data that can be breached. A net negative.",
+    text: [
+      "Many of my accounts are about {years} years old. An account that has existed for that long is itself proof that its holder is an adult, and no further verification should be needed.",
+      "Some of the accounts I am now being asked to verify have been open for around {years} years. No child holds a {years}-year-old account. Demanding proof of age for them makes no sense.",
+      "I have held many of my online accounts for roughly {years} years. Asking me to scan my face or upload ID for them is excessive, unsafe and ineffective. It re-proves something that has already been proven, and the access it grants is worth no more than the proof that already existed. It is a second key to the same gate. Once that gate is open, it stays open to whoever is using the device, whatever their age. The extra key adds no security, but it does create one more store of sensitive information that can be stolen. That makes it a net negative."
+    ],
+    ask: "Make it a legal requirement, across both the social media rules and the Age-Restricted Material Codes, that services accept existing evidence of adulthood (contracts, payment details, long-standing accounts) before asking anyone for a face scan or ID. Today this is optional regulator guidance, not a right." },
+  { id: "breaches", title: "My data won't be kept safe", sub: "Governments and companies keep losing Australians' personal information.",
+    point: "Government agencies have a record of failing to protect personal data and botching technology rollouts (2014 immigration detention data release, 2016 Census outage, Robodebt). Optus and Medibank breaches show the same on the industry side. In 2025, ID documents submitted to Discord for age checks were exposed through a third-party provider.",
+    text: [
+      "I have no confidence my personal information will be kept safe. Australian governments have a record of failing to protect private information and of botching major technology rollouts, from the 2014 accidental release of the details of thousands of people in immigration detention, to the 2016 online Census outage, to the unlawful Robodebt scheme. Breaches at Optus and Medibank show the private sector is no better. In 2025, identity documents submitted to Discord for age checks were exposed through a third-party provider. Every new requirement to hand over a face scan or ID creates another store of data waiting to be breached.",
+      "Australians have watched their personal data leak again and again, from Optus and Medibank to government failures such as the 2016 Census outage and the 2014 release of immigration detainees' personal details. Age verification creates exactly the kind of identity data criminals want. That risk is already real: in 2025, ID images that Discord users submitted for age checks were exposed through a contractor.",
+      "Collecting identity documents and face scans from millions of adults creates a target. Governments and companies in Australia have repeatedly failed to protect far less sensitive information, and the Robodebt scheme showed how badly a large automated system can go wrong. I am not willing to add my identity to another database on trust."
+    ],
+    ask: "Extend the data-use and destruction limits that already apply to social media age checks to the Age-Restricted Material Codes, which rely only on general privacy law, and make sure the statutory review of the social media age rules also covers the codes and takes public submissions." },
+  { id: "offshore", title: "My data goes to foreign companies", sub: "Age checks hand my identity to overseas tech firms and their vendors.",
+    point: "The rules effectively require Australians to share sensitive personal and biometric information with foreign corporations and the overseas age assurance vendors they contract, with little control or recourse.",
+    text: [
+      "These rules effectively require Australians to share sensitive personal and biometric information with foreign corporations, including overseas technology companies and the age assurance vendors they contract. Once that information leaves the country, Australians have little control over how it is stored or used, and little recourse when something goes wrong.",
+      "In practice, the age checks are run by large overseas technology companies and the verification firms they hire. I should not be compelled to hand my identity to a foreign company as a condition of using the internet in my own home.",
+      "The Government is not checking my age itself. It is requiring me to give my identity to overseas corporations and their contractors, under privacy rules Australia does not control. That is a poor trade for Australians' sovereignty over their own data."
+    ],
+    ask: "Require that any age assurance data be processed and held in Australia under Australian law, or not collected at all." },
+  { id: "biometrics", title: "Face scans are too much", sub: "I can change a password. I can't change my face.",
+    point: "Facial age estimation means handing biometric data to companies. A leaked password can be changed; a leaked face scan cannot.",
+    text: [
+      "Many of these systems rely on scanning my face. Biometric data is uniquely sensitive: if a password leaks I can change it, but I cannot change my face. Normalising face scans for ordinary internet use is a serious step that Australians were never properly asked about.",
+      "I object to being asked to scan my face to use services I have used for years. Biometric information cannot be reissued after a breach, and routine face scanning for everyday apps is out of proportion to the problem being addressed.",
+      "Face scanning turns an everyday activity into a biometric checkpoint. Once my facial data has been collected and leaked, there is nothing I can do to protect myself. That risk should not be imposed on every adult."
+    ],
+    ask: "Give face scans the same protection the law already gives government ID: no one should be required to use one, and a non-biometric alternative must always be offered." },
+  { id: "home", title: "Government in my home", sub: "What adults do on their own devices is their business.",
+    point: "It is not the government's role to control what an adult accesses on their own devices at home. Parents already have tools to supervise children; responsibility should rest with families, supported by education and enforcement against genuinely harmful operators.",
+    text: [
+      "It is not the role of government to reach into my home and control what I, as an adult, can access on my own devices. Parents already have tools to supervise their children's devices. Responsibility for children's online use should rest with families, supported by education and by enforcement against genuinely harmful operators, not with checks on the entire adult population.",
+      "I am an adult using my own devices in my own home. The answer to children's online safety is better tools and support for parents, not making every adult in Australia prove themselves before using the internet.",
+      "Parents are best placed to decide what their children do online, and the tools to do that already exist on every phone and console. Imposing checks on every adult to solve a problem that sits with families is government overreach."
+    ],
+    ask: "Oppose any further expansion of age verification, and rely on the parental controls device makers are already required to provide, rather than checks on every adult." },
+  { id: "accountability", title: "An unelected regulator", sub: "Citizens have no say in eSafety's mandate and no way to challenge it.",
+    point: "The eSafety Commissioner is unelected yet shapes how every adult uses the internet. Citizens have no say in the Commission's mandate and no practical way to challenge decisions short of costly litigation. Courts have found against the Commissioner more than once.",
+    text: [
+      "I am concerned about the lack of democratic accountability in how these rules are imposed. The eSafety Commissioner is an unelected official, yet now has sweeping influence over how every Australian adult uses the internet. Ordinary citizens have no say in the Commission's mandate and no practical way to challenge its decisions short of litigation only large corporations can afford. The courts have found against the Commissioner more than once.",
+      "Rules this far-reaching should be made by elected representatives, not an unelected regulator and the industry codes it registers. Australians had no vote on any of this and have no realistic way to challenge it. Several court decisions against the Commissioner suggest the office has gone beyond what Parliament intended.",
+      "Decisions that affect how every adult uses the internet are being made by an unelected Commissioner and written into codes drafted with industry. Voters have no voice in that process and no affordable avenue of appeal. That is not how a democracy should make rules of this size."
+    ],
+    ask: "Make the industry codes subject to disallowance by Parliament, as industry standards already are; establish a standing parliamentary committee to oversee eSafety with formal public input; and broaden the grounds for removing a Commissioner, which are currently limited to misbehaviour or incapacity." },
+  { id: "anonymity", title: "Privacy and anonymity", sub: "Linking my identity to what I read online has a chilling effect.",
+    point: "Tying identity to online activity has a chilling effect on lawful speech and harms people who depend on privacy, such as people escaping violence, whistleblowers and people seeking sensitive health information.",
+    text: [
+      "Tying people's real identities to what they read and do online has a chilling effect on lawful activity. It hurts the people who most depend on privacy: people escaping violence, whistleblowers, and anyone looking for sensitive health or legal information.",
+      "The ability to read and speak online without showing ID is part of a free society. Age verification erodes it for every adult, and the people hurt most are those with the strongest reasons to stay private.",
+      "Once proof of identity is needed to use mainstream services, anonymous lawful use of the internet starts to disappear. That is a significant loss of freedom, and it has not been justified."
+    ],
+    ask: "Protect adults' ability to use the internet anonymously and lawfully, and say so in law." },
+  { id: "effectiveness", title: "It won't work", sub: "Determined kids get around it. Law-abiding adults carry the burden.",
+    point: "Age checks don't work. Verifying an already-verified adult is like adding a second key to a gate that is already locked: once the gate is open, it stays open to whoever uses the device, adult or child. The check adds no real assurance, creates new sensitive data that can be stolen, and can be bypassed with VPNs or borrowed accounts. The burden falls on compliant adults.",
+    text: [
+      "These measures are easily bypassed by determined young people using VPNs or borrowed accounts. The burden falls on law-abiding adults, who are the people least in need of checking.",
+      "Any teenager who wants to get around an age check can do so with a VPN or an older sibling's account. The result is a system that inconveniences and exposes adults while doing little for children.",
+      "A policy that is easy for children to evade but hard for adults to avoid has its burden the wrong way round. Before it goes any further, the Government should show evidence that it actually works.",
+      "This form of age verification does not work. Checking an adult whose age is already established is like adding a second key to a gate that is already locked. It opens the same gate, and once open, the gate stays open to whoever is holding the device, whether they are of age or not. The extra key adds no security. It only adds another collection of sensitive information that can be lost or stolen. On balance, it leaves Australians less safe, not more."
+    ],
+    ask: "Require independent, published evidence that age verification actually reduces harm to children before it is expanded any further." }
+];
+
+const OPEN = {
+  firm: [
+    "I am writing as a constituent of {electorate} to object to mandatory online age verification, including the social media minimum age rules and the Age-Restricted Material Codes now applying to app stores, search engines and other online services. I regard this as government overreach that restricts the online freedom of law-abiding adults without proper justification.",
+    "As a voter in {electorate}, I want to register my strong opposition to the expanding regime of online age verification in Australia. These rules impose real costs on law-abiding adults, and the case for them has not been made.",
+    "I am writing to you as my local member to oppose the age verification requirements now being rolled out across social media, app stores, search engines and other online services. I believe they go well beyond what is justified."
+  ],
+  polite: [
+    "I am writing as a constituent of {electorate} to share my concerns about mandatory online age verification, including the social media minimum age rules and the Age-Restricted Material Codes now applying to app stores, search engines and other online services.",
+    "As a voter in {electorate}, I would like to raise some concerns about the age verification requirements being introduced across online services in Australia, and ask for your help.",
+    "I am writing to you as my local member about the online age verification rules now being rolled out. I understand the intention behind them, but I believe they place an unfair burden on adults like me."
+  ]
+};
+const ASK_INTRO = { firm: ["I ask that you:", "I am asking you to:"], polite: ["I would be grateful if you would:", "I respectfully ask that you:"] };
+const CLOSE = {
+  firm: ["I would appreciate a written response setting out your position on this issue.", "Please reply in writing with your position and what you intend to do."],
+  polite: ["I would welcome a reply setting out your view on this issue.", "Thank you for considering my concerns. I look forward to your reply."]
+};
+const SIGN = { firm: ["Yours sincerely,"], polite: ["Kind regards,", "Yours sincerely,"] };
+
+const $ = id => document.getElementById(id);
+const state = { selected: new Set(["adult", "breaches", "offshore"]), tone: "firm", seed: 7, dirty: false, source: "built", aiBody: "" };
+
+function rng(seed) { let a = seed >>> 0; return () => { a = (a + 0x6D2B79F5) >>> 0; let t = a; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
+const pick = (arr, r) => arr[Math.floor(r() * arr.length)];
+
+function mp() {
+  const pc = $("postcode").value.trim();
+  const elecs = POSTCODES[pc];
+  if (elecs && elecs.length === 1 && MPS[elecs[0]]) return { ...MPS[elecs[0]], electorate: elecs[0], known: true };
+  const name = $("mpName").value.trim(), title = $("mpTitle").value;
+  const surname = name.split(/\s+/).pop() || "";
+  return { name, electorate: $("mpElectorate").value.trim(), email: $("mpEmail").value.trim(),
+    salutation: name ? (title ? title + " " + surname : name) : "", known: false };
+}
+function years() { const v = parseInt($("years").value, 10); return v > 0 ? v : 20; }
+function fill(s, m) { return s.replace(/\{years\}/g, years()).replace(/\{electorate\}/g, m.electorate || "your electorate"); }
+function chosen() { return CONCERNS.filter(c => state.selected.has(c.id)); }
+
+function signature() {
+  const lines = [$("name").value.trim() || "[Your name]", $("street").value.trim() || "[Street address]"];
+  const sub = $("suburb").value.trim(), pc = $("postcode").value.trim();
+  lines.push(((sub || "[Suburb]") + " VIC " + (pc || "[Postcode]")).trim());
+  if ($("email").value.trim()) lines.push($("email").value.trim());
+  return lines.join("\n");
+}
+function greeting(m) { return "Dear " + (m.salutation || "[MP's name]") + ","; }
+
+function asksFor(list) { const seen = new Set(); return list.map(c => c.ask).filter(a => !seen.has(a) && seen.add(a)); }
+
+function buildBody(m) {
+  const r = rng(state.seed), t = state.tone, list = chosen();
+  const parts = [fill(pick(OPEN[t], r), m)];
+  list.forEach(c => parts.push(fill(pick(c.text, r), m)));
+  const own = $("personal").value.trim();
+  if (own) parts.splice(Math.min(1, parts.length), 0, own);
+  const asks = asksFor(list);
+  if (asks.length) parts.push(pick(ASK_INTRO[t], r) + "\n" + asks.map((a, i) => (i + 1) + ". " + a).join("\n"));
+  parts.push(pick(CLOSE[t], r));
+  return { body: parts.join("\n\n"), sign: pick(SIGN[t], r) };
+}
+
+function compose() {
+  const m = mp();
+  if (state.source === "ai" && state.aiBody) return greeting(m) + "\n\n" + state.aiBody + "\n\nYours sincerely,\n\n" + signature();
+  const b = buildBody(m);
+  return greeting(m) + "\n\n" + b.body + "\n\n" + b.sign + "\n\n" + signature();
+}
+
+function recipients() {
+  const m = mp();
+  const to = m.email || "";
+  const cc = Object.keys(CC).filter(k => $(k).checked).map(k => CC[k]);
+  return { to, cc };
+}
+
+function renderMp() {
+  const m = mp();
+  $("mpFound").hidden = !m.known; $("mpManual").hidden = m.known;
+  if (m.known) $("mpFound").innerHTML = "<span class=\"hint\">Member for " + m.electorate + "</span><strong>" + m.name + " MP</strong><span class=\"addr\">" + m.email + "</span>";
+}
+
+function renderConcerns() {
+  const box = $("concerns"); box.innerHTML = "";
+  CONCERNS.forEach(c => {
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "concern"; b.id = "c-" + c.id;
+    b.setAttribute("aria-pressed", state.selected.has(c.id));
+    b.innerHTML = "<b>" + c.title + "</b><span>" + c.sub + "</span>";
+    b.onclick = () => { state.selected.has(c.id) ? state.selected.delete(c.id) : state.selected.add(c.id); b.setAttribute("aria-pressed", state.selected.has(c.id)); update(); };
+    box.appendChild(b);
+  });
+}
+
+function aiPrompt() {
+  const m = mp(), list = chosen(), own = $("personal").value.trim();
+  const tone = state.tone === "firm" ? "firm and direct, but respectful" : "courteous and constructive";
+  return [
+    "Write the body of a letter from an Australian voter to their federal MP" + (m.electorate ? " (Member for " + m.electorate + ")" : "") + ", objecting to mandatory online age verification (the social media minimum age rules and the eSafety Age-Restricted Material Codes covering app stores, search engines and other online services).",
+    "",
+    "Tone: " + tone + ". Australian English. Plain language, first person, 300 to 450 words. Use your own wording and structure rather than a template.",
+    "Do not include a greeting, sign-off, name or address. Start straight after \"Dear ...,\" and stop before \"Yours sincerely\".",
+    "Only use the facts given below. Do not add statistics, quotes or events that are not listed.",
+    "",
+    "The writer's concerns:",
+    ...list.map(c => "- " + c.title + ": " + fill(c.point, m)),
+    own ? "\nIn the writer's own words (keep the substance and keep it personal):\n" + own : "",
+    "",
+    "End with a short numbered list of requests to the MP, drawn from these:",
+    ...asksFor(list).map(a => "- " + a),
+    "Finish by asking for a written reply."
+  ].filter(x => x !== null).join("\n");
+}
+
+function setLinks() {
+  const { to, cc } = recipients(), subj = $("subject").value, body = $("letter").value;
+  $("toV").textContent = to || "Enter your MP's email in step 2";
+  $("ccV").textContent = cc.join(", ") || "None";
+  const e = encodeURIComponent;
+  $("gmail").href = "https://mail.google.com/mail/?view=cm&fs=1&to=" + e(to) + "&cc=" + e(cc.join(",")) + "&su=" + e(subj) + "&body=" + e(body);
+  $("outlook").href = "https://outlook.live.com/mail/0/deeplink/compose?to=" + e(to) + "&cc=" + e(cc.join(",")) + "&subject=" + e(subj) + "&body=" + e(body);
+  $("mailto").href = "mailto:" + to + "?cc=" + e(cc.join(",")) + "&subject=" + e(subj) + "&body=" + e(body);
+  const p = e(aiPrompt());
+  $("toChatGPT").href = "https://chatgpt.com/?q=" + p;
+  $("toClaude").href = "https://claude.ai/new?q=" + p;
+}
+
+function stats() {
+  const t = $("letter").value, w = (t.match(/\S+/g) || []).length;
+  $("wordCount").textContent = w + " words";
+  const own = $("personal").value.trim().length > 30;
+  $("uniq").textContent = state.source === "ai" ? "AI-rewritten" : own ? "Includes your own words" : "Add your own words in step 4";
+}
+
+function update() {
+  renderMp();
+  $("yearsWrap").hidden = !state.selected.has("longstanding");
+  if (!state.dirty) $("letter").value = compose();
+  $("sourceLabel").textContent = state.source === "ai" ? "Rewritten by AI, checked by you" : "Built from your choices";
+  setLinks(); stats();
+}
+
+function toast(msg) { $("toast").textContent = msg; clearTimeout(toast.t); toast.t = setTimeout(() => $("toast").textContent = "", 2600); }
+async function copy(text, label, fallbackEl) {
+  try { await navigator.clipboard.writeText(text); toast(label + " copied."); }
+  catch (e) {
+    if (fallbackEl) { const s = window.getSelection(), r = document.createRange(); r.selectNodeContents(fallbackEl); s.removeAllRanges(); s.addRange(r); }
+    toast("Couldn't copy automatically. The text is selected, so press Ctrl+C or ⌘C.");
+  }
+}
+
+["name", "email", "street", "suburb", "postcode", "mpName", "mpTitle", "mpElectorate", "mpEmail", "personal", "years", "ccMinister", "ccEsafety"].forEach(id => $(id).addEventListener("input", update));
+["ccMinister", "ccEsafety", "mpTitle"].forEach(id => $(id).addEventListener("change", update));
+$("subject").addEventListener("input", setLinks);
+$("letter").addEventListener("input", () => { state.dirty = true; $("dirtyNote").hidden = false; setLinks(); stats(); });
+$("resetEdits").onclick = () => { state.dirty = false; $("dirtyNote").hidden = true; update(); };
+$("shuffle").onclick = () => { state.seed = Math.floor(Math.random() * 1e9); state.source = "built"; state.dirty = false; $("dirtyNote").hidden = true; update(); toast("New wording."); };
+function setTone(t) { state.tone = t; $("toneFirm").setAttribute("aria-pressed", t === "firm"); $("tonePolite").setAttribute("aria-pressed", t === "polite"); update(); }
+$("toneFirm").onclick = () => setTone("firm"); $("tonePolite").onclick = () => setTone("polite");
+$("copyPrompt").onclick = () => copy(aiPrompt(), "Prompt");
+$("useAi").onclick = () => {
+  let b = $("aiPaste").value.trim();
+  if (!b) { toast("Paste the AI's draft into the box first."); return; }
+  b = b.replace(/^dear[^\n]*\n+/i, "").replace(/\n+(yours sincerely|kind regards|regards|sincerely)[\s\S]*$/i, "").trim();
+  state.aiBody = b; state.source = "ai"; state.dirty = false; $("dirtyNote").hidden = true; update(); toast("Using the AI draft.");
+};
+$("copyLetter").onclick = () => copy($("letter").value, "Letter", $("letter"));
+document.querySelectorAll("[data-copy]").forEach(b => b.onclick = () => copy($(b.dataset.copy).textContent, b.closest(".addr-row").querySelector(".k").textContent + " addresses", $(b.dataset.copy)));
+
+renderConcerns(); update();
+</script>
