@@ -2,7 +2,7 @@
 
 A free website where Australian voters write to their federal MP objecting to mandatory online age verification. The voter picks their concerns, adds a few words of their own, gets a varied draft letter, and sends it **from their own email account**.
 
-The site is [`index.html`](index.html) — a single self-contained page that loads the data in [`/data`](data). [`proof-enough.html`](proof-enough.html) is the original standalone prototype it grew from.
+The site is [`index.html`](index.html) with its script in [`app.js`](app.js), loading its data from [`/data`](data). **Live at https://proof-enough.pages.dev**
 
 ## Core principles
 
@@ -23,9 +23,12 @@ The site is [`index.html`](index.html) — a single self-contained page that loa
 
 ```
 /                        static site (Cloudflare Pages)
-  index.html             from the prototype
+  index.html             the page (markup + styles)
+  app.js                 the page script
   data/mps.json          150 House MPs: electorate, name, salutation, email
   data/localities.json   suburb + postcode -> electorate(s)
+  fonts/                 self-hosted web fonts
+  _headers               security response headers (CSP, HSTS, ...)
 /functions/api/draft.js  Pages Function: Workers AI letter generation
 /scripts/                local / GitHub Actions data-build scripts
 ```
@@ -59,13 +62,22 @@ generations so we know the daily letter capacity (confirm at deploy).
 
 ## Status
 
-Front-end complete and wired to live data; all 150 MPs and the full national
+Deployed and live on Cloudflare Pages (Free plan). All 150 MPs and the full national
 suburb→electorate map are built from official sources (see [`scripts`](scripts)). The
-built-in AI function is written and unit-tested. Remaining work: **deployment** to
-Cloudflare Pages (connect the repo, add the Workers AI binding + Turnstile keys, confirm
-the Free plan), and the **pre-launch checks** — the AEC authorisation line, a cc-address
-re-check, and confirming the exact AEC/ABS attribution wording.
+ChatGPT/Claude hand-off and phrase-bank letter work today. The built-in Workers AI writer
+is implemented but **off by default** — enable it by adding the `AI` binding and Turnstile
+keys (see above). Outstanding operational checks: confirm the Cloudflare account is on the
+Free plan with no payment method, and re-verify the cc addresses before promoting widely.
 
 ## Licence / attribution
 
-To be confirmed before launch. The site must carry data-licence attribution for the AEC and ABS boundary data, and an AEC electoral authorisation statement (`Authorised by [Name], [Town]`).
+The site footer credits the data sources: federal electoral boundaries © Australian
+Electoral Commission, and ABS Suburbs/Localities and Postal Areas boundaries, both used
+under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); MP contact details are
+from the Parliament of Australia.
+
+No electoral authorisation statement is included: per the [AEC authorisation
+test](https://www.aec.gov.au/About_AEC/Publications/backgrounders/authorisation-step1.htm)
+this is issue advocacy (not electoral matter communicated to influence a vote at an
+election) and is not a paid advertisement, printed material, or a communication by a
+disclosure entity. Re-assess if any of those change.
