@@ -1,7 +1,5 @@
 <title>Proof Enough</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="fonts/fonts.css">
 <style>
 /* Layout: two columns on wide screens. Left = numbered steps the voter works through; right = a sticky letter on "paper", with the send panel under it. Stacks to one column on phones. Palette borrows the House of Representatives chamber green. */
 :root {
@@ -237,7 +235,7 @@ footer { margin-top: 36px; color: var(--muted); font-size: 12.5px; display: grid
     <p><strong>3. If you use the "Draft with ChatGPT" or "Draft with Claude" buttons</strong> — these open ChatGPT (OpenAI) or Claude (Anthropic) in your browser, under your own account, carrying that same limited prompt (concerns, your paragraph, electorate, tone). Again, no name, address, email, suburb or postcode. From there the draft lives in your own AI account, under that company's terms.</p>
     <p><strong>4. When you send the letter</strong> — you send it yourself, from your own email (Gmail, Outlook, or your mail app). We never see your email, your letter, or who you send it to. One honest note: the finished letter <strong>does</strong> include your name and address in the signature — because that's what you're choosing to send to your MP, and electorate offices use it to confirm you're a local constituent. That is the one place your details travel, and only when <em>you</em> press send.</p>
     <p><strong>5. No cookies, no tracking, no profile of you.</strong> <span class="fine">(If simple page-view counting is ever switched on, it uses a cookie-free method that can't identify you.)</span></p>
-    <p class="fine">What this page connects to, for transparency: fonts from Google; our host Cloudflare (the page, and the optional writer); and — only if the built-in writer is enabled — a Cloudflare anti-spam check (Turnstile). None of these receive what you type.</p>
+    <p class="fine">What this page connects to, for transparency: our host, Cloudflare (serving the page, and — only if the built-in writer is enabled — running it and a Cloudflare anti-spam check, Turnstile). Fonts are served from this site, not from a third party. Nothing here receives what you type.</p>
   </section>
 
   <footer>
@@ -477,10 +475,18 @@ function renderMp() {
   $("mpManual").hidden = r.mode !== "manual";
   if (r.mode === "found") {
     const m = MPS[r.electorate];
-    const contact = m.email
-      ? "<span class=\"addr\">" + m.email + "</span>"
-      : "<span class=\"notice\" style=\"margin-top:6px\">Parliament doesn't publish a direct email for this member. You can still build and copy your letter, or reach them via their page on <a href=\"https://www.aph.gov.au/Senators_and_Members/Members\" target=\"_blank\" rel=\"noopener\">aph.gov.au</a>.</span>";
-    $("mpFound").innerHTML = "<span class=\"hint\">Member for " + r.electorate + "</span><strong>" + m.name + " MP</strong>" + contact;
+    const box = $("mpFound"); box.textContent = "";
+    const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
+    box.append(el("span", "hint", "Member for " + r.electorate), el("strong", null, m.name + " MP"));
+    if (m.email) {
+      box.append(el("span", "addr", m.email));
+    } else {
+      const note = el("span", "notice"); note.style.marginTop = "6px";
+      note.append("Parliament doesn't publish a direct email for this member. You can still build and copy your letter, or reach them via their page on ");
+      const link = el("a", null, "aph.gov.au");
+      link.href = "https://www.aph.gov.au/Senators_and_Members/Members"; link.target = "_blank"; link.rel = "noopener";
+      note.append(link, "."); box.append(note);
+    }
   } else if (r.mode === "choice") {
     $("mpChoiceNote").innerHTML = "Your suburb is split between more than one electorate. Pick yours — if you're not sure, check the <a href=\"https://electorate.aec.gov.au/\" target=\"_blank\" rel=\"noopener\">AEC electorate finder</a>.";
     const box = $("mpChoiceBtns"); box.innerHTML = "";
@@ -500,7 +506,9 @@ function renderConcerns() {
     const b = document.createElement("button");
     b.type = "button"; b.className = "concern"; b.id = "c-" + c.id;
     b.setAttribute("aria-pressed", state.selected.has(c.id));
-    b.innerHTML = "<b>" + c.title + "</b><span>" + c.sub + "</span>";
+    const t = document.createElement("b"); t.textContent = c.title;
+    const s = document.createElement("span"); s.textContent = c.sub;
+    b.append(t, s);
     b.onclick = () => { state.selected.has(c.id) ? state.selected.delete(c.id) : state.selected.add(c.id); b.setAttribute("aria-pressed", state.selected.has(c.id)); update(); };
     box.appendChild(b);
   });
